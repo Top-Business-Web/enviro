@@ -24,6 +24,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Career ####
     Route::resource('careers','CareerController');
 
+    #### Category ####
+    Route::resource('categories','CategoryController');
+
     #### Auth ####
     Route::get('logout', 'AuthController@logout')->name('admin.logout');
 
