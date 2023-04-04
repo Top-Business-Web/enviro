@@ -9,5 +9,7 @@ class About extends Model
 {
     use HasFactory;
 
+    protected $table = 'about_us';
+
     protected $guarded = [];
 }
