@@ -27,6 +27,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Category ####
     Route::resource('categories','CategoryController');
 
+    #### Contact ####
+    Route::resource('contact','ContactController');
+
     #### Auth ####
     Route::get('logout', 'AuthController@logout')->name('admin.logout');
 

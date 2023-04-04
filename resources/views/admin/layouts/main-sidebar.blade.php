@@ -45,6 +45,13 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item" href="{{route('contact.index')}}">
+                <i class="icon icon-lock side-menu__icon"></i>
+                <span class="side-menu__label">تواصل</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item" href="{{route('admin.logout')}}">
                 <i class="icon icon-lock side-menu__icon"></i>
                 <span class="side-menu__label">تسجيل الخروج</span>
