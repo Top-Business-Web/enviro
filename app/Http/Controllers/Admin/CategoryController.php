@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCareer;
-use App\Http\Requests\UpdateCareer;
-use App\Models\Career;
+use App\Http\Requests\StoreCategory;
+use App\Http\Requests\UpdateCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class CareerController extends Controller
+class CategoryController extends Controller
 {
     public function index(request $request)
     {
         if ($request->ajax()) {
-            $careers = Career::latest()->get();
-            return Datatables::of($careers)
-                ->addColumn('action', function ($careers) {
+            $categories = Category::latest()->get();
+            return Datatables::of($categories)
+                ->addColumn('action', function ($categories) {
                     return '
-                                <button type="button" data-id="' . $careers->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
+                                <button type="button" data-id="' . $categories->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                                 <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
-                                        data-id="' . $careers->id . '" data-title="' . $careers->name . '">
+                                        data-id="' . $categories->id . '" data-title="' . $categories->title_ar . '">
                                         <i class="fas fa-trash"></i>
                                 </button>
                            ';
@@ -28,29 +28,21 @@ class CareerController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         } else {
-            return view('Admin/careers/index');
+            return view('Admin/categories/index');
         }
     }
 
     public function create()
     {
-        return view('Admin/careers/parts/create');
+        return view('Admin/categories/parts/create');
     }
 
-    public function store(StoreCareer $request)
+    public function store(StoreCategory $request)
     {
         try {
             $inputs = $request->all();
 
-            if ($request->hasFile('file')) {
-                $file = $request->file('file');
-                $filename = $file->getClientOriginalName();
-
-                $file->move('assets/admin/careers/pdfs', $filename);
-                $inputs['file'] = $filename;
-            }
-
-            if (Career::create($inputs)) {
+            if (Category::create($inputs)) {
                 return response()->json(['status' => 200]);
             } else {
                 return response()->json(['status' => 405]);
@@ -60,24 +52,16 @@ class CareerController extends Controller
         }
     }
 
-    public function edit(Career $career)
+    public function edit(Category $category)
     {
-        return view('Admin/careers/parts/edit', compact('career'));
+        return view('Admin/categories/parts/edit', compact('category'));
     }
 
-    public function update(UpdateCareer $request, $id)
+    public function update(UpdateCategory $request, $id)
     {
         try {
-            $career = Career::findOrFail($id);
+            $career = Category::findOrFail($id);
             $inputs = $request->all();
-
-            if ($request->hasFile('file')) {
-                $file = $request->file('file');
-                $filename = $file->getClientOriginalName();
-
-                $file->move('assets/admin/careers/pdfs', $filename);
-                $inputs['file'] = $filename;
-            }
 
             if ($career->update($inputs)) {
                 return response()->json(['status' => 200]);
@@ -91,7 +75,7 @@ class CareerController extends Controller
 
     public function destroy(Request $request)
     {
-        $careers = Career::where('id', $request->id)->first();
+        $careers = Category::where('id', $request->id)->first();
         $careers->delete();
         return response(['message' => 'تم الحذف بنجاح', 'status' => 200], 200);
     }

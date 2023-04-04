@@ -24,7 +24,7 @@ class UpdateCareer extends FormRequest
     public function rules()
     {
         return [
-            'file' => 'required',
+            'file' => 'nullable',
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required|min:11',

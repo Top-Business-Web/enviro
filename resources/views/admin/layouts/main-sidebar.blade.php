@@ -31,6 +31,13 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item" href="{{route('categories.index')}}">
+                <i class="fe fe-users side-menu__icon"></i>
+                <span class="side-menu__label">فئات</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item" href="{{route('about_us.index')}}">
                 <i class="icon icon-lock side-menu__icon"></i>
                 <span class="side-menu__label">معلومات عنا</span>
