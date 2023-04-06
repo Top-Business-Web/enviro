@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quote extends Model
+class NewsLetter extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $table = 'newsletter';
 
-    protected $table = 'quote';
+    protected $guarded = [];
 }

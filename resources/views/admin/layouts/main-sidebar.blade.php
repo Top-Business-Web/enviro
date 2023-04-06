@@ -94,6 +94,27 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item" href="{{route('news_letter.index')}}">
+                <i class="icon icon-lock side-menu__icon"></i>
+                <span class="side-menu__label">النشرة الإخبارية</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{route('quotes.index')}}">
+                <i class="icon icon-lock side-menu__icon"></i>
+                <span class="side-menu__label">الاقتباسات</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{route('background_image.index')}}">
+                <i class="icon icon-lock side-menu__icon"></i>
+                <span class="side-menu__label">خلفيات الصفحات</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item" href="{{route('settings.index')}}">
                 <i class="icon icon-lock side-menu__icon"></i>
                 <span class="side-menu__label">الاعدادات</span>
