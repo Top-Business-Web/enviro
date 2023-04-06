@@ -24,17 +24,32 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Post ####
     Route::resource('post','PostController');
 
+    #### Product ####
+    Route::resource('product','ProductController');
+
     #### Career ####
     Route::resource('careers','CareerController');
 
     #### Category ####
     Route::resource('categories','CategoryController');
 
+    #### SubCategory ####
+    Route::resource('subcategories','SubCategoryController');
+
+    #### Service ####
+    Route::resource('services', 'ServiceController');
+
+    #### Slider ####
+    Route::resource('sliders','SliderController');
+
     #### Contact ####
     Route::resource('contact','ContactController');
 
     #### Faqs ####
     Route::resource('faqs','FaqController');
+
+    #### Setting ####
+    Route::resource('settings','SettingController');
 
     #### Auth ####
     Route::get('logout', 'AuthController@logout')->name('admin.logout');

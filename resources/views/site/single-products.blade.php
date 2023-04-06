@@ -30,35 +30,35 @@
                         <div class="product-img">
                             <img
                                 class="img-fluid"
-                                src="assets/img/blog/1.jpg"
+                                src="{{ asset('assets/front/') }}/assets/img/blog/1.jpg"
                                 alt="product image"
                             />
                         </div>
                         <div class="product-img">
                             <img
                                 class="img-fluid"
-                                src="assets/img/blog/2.jpg"
+                                src="{{ asset('assets/front/') }}/assets/img/blog/2.jpg"
                                 alt="product image"
                             />
                         </div>
                         <div class="product-img">
                             <img
                                 class="img-fluid"
-                                src="assets/img/blog/3.jpg"
+                                src="{{ asset('assets/front/') }}/assets/img/blog/3.jpg"
                                 alt="product image"
                             />
                         </div>
                         <div class="product-img">
                             <img
                                 class="img-fluid"
-                                src="assets/img/blog/1.jpg"
+                                src="{{ asset('assets/front/') }}/assets/img/blog/1.jpg"
                                 alt="product image"
                             />
                         </div>
                         <div class="product-img">
                             <img
                                 class="img-fluid"
-                                src="assets/img/blog/2.jpg"
+                                src="{{ asset('assets/front/') }}/assets/img/blog/2.jpg"
                                 alt="product image"
                             />
                         </div>
@@ -66,27 +66,27 @@
                     <div class="small-slider">
                         <img
                             class="img-fluid"
-                            src="assets/img/blog/1.jpg"
+                            src="{{ asset('assets/front/') }}/assets/img/blog/1.jpg"
                             alt="product image"
                         />
                         <img
                             class="img-fluid"
-                            src="assets/img/blog/2.jpg"
+                            src="{{ asset('assets/front/') }}/assets/img/blog/2.jpg"
                             alt="product image"
                         />
                         <img
                             class="img-fluid"
-                            src="assets/img/blog/3.jpg"
+                            src="{{ asset('assets/front/') }}/assets/img/blog/3.jpg"
                             alt="product image"
                         />
                         <img
                             class="img-fluid"
-                            src="assets/img/blog/1.jpg"
+                            src="{{ asset('assets/front/') }}/assets/img/blog/1.jpg"
                             alt="product image"
                         />
                         <img
                             class="img-fluid"
-                            src="assets/img/blog/2.jpg"
+                            src="{{ asset('assets/front/') }}/assets/img/blog/2.jpg"
                             alt="product image"
                         />
                     </div>
@@ -176,7 +176,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     <div class="project-single">
                         <div class="project-img">
-                            <img src="assets/img/project/2.jpg" alt="">
+                            <img src="{{ asset('assets/front/') }}/assets/img/project/2.jpg" alt="">
                         </div>
                         <div class="project-content">
                             <div class="project-title text-center">
@@ -189,7 +189,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     <div class="project-single">
                         <div class="project-img">
-                            <img src="assets/img/project/2.jpg" alt="">
+                            <img src="{{ asset('assets/front/') }}/assets/img/project/2.jpg" alt="">
                         </div>
                         <div class="project-content">
                             <div class="project-title text-center">
@@ -202,7 +202,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     <div class="project-single">
                         <div class="project-img">
-                            <img src="assets/img/project/2.jpg" alt="">
+                            <img src="{{ asset('assets/front/') }}/assets/img/project/2.jpg" alt="">
                         </div>
                         <div class="project-content">
                             <div class="project-title text-center">
