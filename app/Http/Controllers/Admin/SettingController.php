@@ -36,4 +36,4 @@ class SettingController extends Controller
         else
             return response()->json(['status' => 405]);
     }
-}//end class
+}

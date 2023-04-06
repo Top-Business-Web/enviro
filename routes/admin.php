@@ -48,6 +48,15 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function (){
     #### Faqs ####
     Route::resource('faqs','FaqController');
 
+    #### BackGround Image ####
+    Route::resource('background_image','BgImageController');
+
+    #### News letter  ####
+    Route::resource('news_letter','NewsLetterController');
+
+    #### Quote ####
+    Route::resource('quotes','QuoteController');
+
     #### Setting ####
     Route::resource('settings','SettingController');
 
