@@ -25,25 +25,37 @@ class StoreSetting extends FormRequest
     public function rules()
     {
         return [
-            'about_ar'          => 'required',
-            'about_en'          => 'required',
-            'privacy_ar'        => 'required',
-            'privacy_en'        => 'required',
-            'terms_ar'          => 'required',
-            'terms_en'          => 'required',
-
+            'title_ar' => 'required',
+            'title_en' => 'required',
+            'desc_ar' => 'required',
+            'desc_en' => 'required',
+            'logo' => 'image:png|nullable',
+            'location_url' => 'required',
+            'address_ar' => 'required',
+            'address_en' => 'required',
+            'open' => 'nullable',
+            'email' => 'email|required',
+            'facebook' => 'nullable',
+            'youtube' => 'nullable',
+            'twitter' => 'nullable',
+            'instagram' => 'nullable',
+            'linkedin' => 'nullable',
         ];
     }
 
     public function messages()
     {
         return [
-            'about_ar.required'                 => 'يجب ادخال هذا الحقل',
-            'about_en.required'                 => 'يجب ادخال هذا الحقل',
-            'privacy_ar.required'               => 'يجب ادخال هذا الحقل',
-            'privacy_en.required'               => 'يجب ادخال هذا الحقل',
-            'terms_ar.required'                 => 'يجب ادخال هذا الحقل',
-            'terms_en.required'                 => 'يجب ادخال هذا الحقل',
+            'title_ar.required' => 'العنوان بالعربي مطلوب',
+            'title_en.required' => 'العنوان بالانجليزي مطلوب',
+            'desc_ar.required' => 'الوصف بالعربي مطلوب',
+            'desc_en.required' => 'الوصف بالانجليزي مطلوب',
+            'logo.image:png' => 'يجب ان تكون لاحقة Png',
+            'location_url.required' => 'الموقع مطلوب',
+            'address_ar.required' => 'المكان بالعربي مطلوب',
+            'address_en.required' => 'المكان بالانجليزي مطلوب',
+            'email.required' => 'الايميل مطلوب',
+            'email.email' => 'الايميل يجب ان يكون صحيح',
         ];
     }
 }

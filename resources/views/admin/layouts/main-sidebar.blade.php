@@ -2,7 +2,7 @@
 <aside class="app-sidebar">
     <div class="side-header">
         <a class="header-brand1" href="{{route('adminHome')}}">
-            <img src="{{($setting->logo) ?? asset('assets/uploads/empty.png')}}" class="header-brand-img light-logo1"
+            <img src="{{ ($setting->logo) }}" class="header-brand-img light-logo1"
                  alt="logo">
         </a>
         <!-- LOGO -->
@@ -38,6 +38,27 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item" href="{{route('subcategories.index')}}">
+                <i class="fe fe-users side-menu__icon"></i>
+                <span class="side-menu__label">فئات فرعية</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{route('services.index')}}">
+                <i class="fe fe-users side-menu__icon"></i>
+                <span class="side-menu__label">الخدمات</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{route('sliders.index')}}">
+                <i class="fe fe-users side-menu__icon"></i>
+                <span class="side-menu__label">السلايدر</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item" href="{{route('about_us.index')}}">
                 <i class="icon icon-lock side-menu__icon"></i>
                 <span class="side-menu__label">معلومات عنا</span>
@@ -59,9 +80,23 @@
         </li>
 
         <li class="slide">
+            <a class="side-menu__item" href="{{route('product.index')}}">
+                <i class="icon icon-lock side-menu__icon"></i>
+                <span class="side-menu__label">المنتجات</span>
+            </a>
+        </li>
+
+        <li class="slide">
             <a class="side-menu__item" href="{{route('contact.index')}}">
                 <i class="icon icon-lock side-menu__icon"></i>
                 <span class="side-menu__label">تواصل</span>
+            </a>
+        </li>
+
+        <li class="slide">
+            <a class="side-menu__item" href="{{route('settings.index')}}">
+                <i class="icon icon-lock side-menu__icon"></i>
+                <span class="side-menu__label">الاعدادات</span>
             </a>
         </li>
 

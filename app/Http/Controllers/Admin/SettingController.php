@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSetting;
 use App\Models\Setting;
 use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
@@ -12,22 +13,25 @@ class SettingController extends Controller
     use PhotoTrait;
 
     public function index(){
-        $setting = Setting::first();
-        return view('admin.settings.index',compact('setting'));
+        $settings = Setting::first();
+        return view('admin.settings.index',compact('settings'));
     }
 
-    public function update(Request $request)
+    public function update(StoreSetting $request)
     {
-        $setting = Setting::first();
+        $settings = Setting::findOrFail($request->id);
 
-        if ($request->has('image')) {
-            if (file_exists($setting->image)) {
-                unlink($setting->image);
+        $inputs = $request->all();
+
+        if ($request->has('logo'))
+        {
+            if (file_exists(public_path('assets/uploads/admins/images/') .$settings->logo)) {
+                unlink(('assets/uploads/admins/images/') .$settings->logo);
             }
-            $inputs['image'] = $this->saveImage($request->image, 'assets/uploads/settings');
+            $inputs['logo'] =  $request->logo != null ? $this->saveImage($request->logo, 'assets/uploads/admins/images' , 'photo') : $inputs['logo'];
         }
 
-        if ($setting->update($inputs))
+        if ($settings->update($inputs))
             return response()->json(['status' => 200]);
         else
             return response()->json(['status' => 405]);
