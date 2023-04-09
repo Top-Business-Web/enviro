@@ -62,17 +62,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="facebook_link"> رابط الموقع :</label>
-                                <input type="text" name="location_url" value="{{ $settings->title_ar }}"
+                                <input type="text" name="location_url" value="{{ $settings->location_url }}"
                                        class="form-control"/>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for=""> الايميل :</label>
-                                <input type="text" name="email" value="{{ $settings->title_en }}" value=""
+                                <input type="text" name="email" value="{{ $settings->email }}" value=""
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for=""> الهاتف :</label>
+                                <input type="text" name="phone" value="{{ $settings->phone }}" value=""
                                        class="form-control"/>
                             </div>
                         </div>

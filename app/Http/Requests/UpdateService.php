@@ -13,7 +13,7 @@ class UpdateService extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,6 +26,7 @@ class UpdateService extends FormRequest
         return [
             'images*' => 'image|nullable',
             'images' => 'image|array',
+            'image_logo' => 'image|nullable',
             'title_ar' => 'required',
             'title_en' => 'required',
             'desc_ar' => 'required',

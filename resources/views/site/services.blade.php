@@ -13,8 +13,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcroumb-title text-center">
-                        <h1>Services</h1>
-                        <h6><a href="index.blade.php">Home</a> / Services</h6>
+                        <h1>{{ trans('site.services') }}</h1>
+                        <h6><a href="{{ route('home') }}">{{ trans('site.home') }}</a> / {{ trans('site.services') }}
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -26,181 +27,36 @@
     <div class="service-area section-padding">
         <div class="container">
             <div class="section-title">
-                <h6>What we’re doing</h6>
-                <h2>Services We Offer</h2>
+                <h6>{{ trans('site.What_we’re_doing') }}</h6>
+                <h2>{{ trans('site.services_we_offer') }}</h2>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms"
-                     style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <!--Services Two Single-->
-                    <div class="services-two_single">
-                        <div class="services-two_img-box">
-                            <div class="services-two_img">
-                                <img src="assets/img/service/service_6.jpg" alt="">
+                @foreach ($data['services'] as $service)
+                    <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms"
+                         style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+                        <!--Services Two Single-->
+                        <div class="services-two_single">
+                            <div class="services-two_img-box">
+                                <div class="services-two_img">
+                                    <img src="{{ asset($service->images[0]) }}" alt="">
+                                </div>
+                                <div class="services-two_icon">
+                                    <img src="{{ asset($service->image_logo) }}" alt="">
+                                </div>
                             </div>
-                            <div class="services-two_icon">
-                                <img src="assets/img/icon/paper.png" alt="">
-                            </div>
-                        </div>
-                        <div class="services-two_content">
-                            <h3 class="services-two_title"><a href="single_services.blade.php">Waste Mangment</a></h3>
-                            <p class="services-two_text">Lorem ipsum dolor sit donec amet tristique ante vel sem
-                                dictum is rhoncus elit sed.</p>
-                            <div class="services-two_bottom">
-                                <a href="single_services.blade.php" class="services-one_btn">Read More</a>
-                                <a href="single_services.blade.php" class="services-one_arrow"><span
-                                        class="icon-right-arrow"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms"
-                     style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
-                    <!--Services Two Single-->
-                    <div class="services-two_single">
-                        <div class="services-two_img-box">
-                            <div class="services-two_img">
-                                <img src="assets/img/service/service_2.jpg" alt="">
-                            </div>
-                            <div class="services-two_icon">
-                                <img src="assets/img/icon/plastic.png" alt="">
-                            </div>
-                        </div>
-                        <div class="services-two_content">
-                            <h3 class="services-two_title"><a href="single_services.blade.php">Plastic Recycling</a>
-                            </h3>
-                            <p class="services-two_text">Lorem ipsum dolor sit donec amet tristique ante vel sem
-                                dictum is rhoncus elit sed.</p>
-                            <div class="services-two_bottom">
-                                <a href="single_services.blade.php" class="services-one_btn">Read More</a>
-                                <a href="single_services.blade.php" class="services-one_arrow"><span
-                                        class="icon-right-arrow"></span></a>
+                            <div class="services-two_content">
+                                <h3 class="services-two_title"><a href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}</a>
+                                </h3>
+                                <p class="services-two_text">{{ app()->getLocale() == 'ar' ? $service->desc_ar : $service->desc_en }}</p>
+                                <div class="services-two_bottom">
+                                    <a href="{{ route('singleService', $service->id) }}" class="services-one_btn">{{ trans('site.read_more') }}</a>
+                                    <a href="single_services.blade.php" class="services-one_arrow"><span
+                                            class="icon-right-arrow"></span></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms"
-                     style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
-                    <!--Services Single-->
-                    <div class="services-two_single">
-                        <div class="services-two_img-box">
-                            <div class="services-two_img">
-                                <img src="assets/img/service/service_1.jpg" alt="">
-                            </div>
-                            <div class="services-two_icon">
-                                <img src="assets/img/icon/paper.png" alt="">
-                            </div>
-                        </div>
-                        <div class="services-two_content">
-                            <h3 class="services-two_title"><a href="single_services.blade.php">Paper Recycling</a>
-                            </h3>
-                            <p class="services-two_text">Lorem ipsum dolor sit donec amet tristique ante vel sem
-                                dictum is rhoncus elit sed.</p>
-                            <div class="services-two_bottom">
-                                <a href="single_services.blade.php" class="services-one_btn">Read More</a>
-                                <a href="single_services.blade.php" class="services-one_arrow"><span
-                                        class="icon-right-arrow"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms"
-                     style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <!--Services Two Single-->
-                    <div class="services-two_single">
-                        <div class="services-two_img-box">
-                            <div class="services-two_img">
-                                <img src="assets/img/service/service_3.jpg" alt="">
-                            </div>
-                            <div class="services-two_icon">
-                                <img src="assets/img/icon/glass.png" alt="">
-                            </div>
-                        </div>
-                        <div class="services-two_content">
-                            <h3 class="services-two_title"><a href="single_services.blade.php">Glass Recycling</a></h3>
-                            <p class="services-two_text">Lorem ipsum dolor sit donec amet tristique ante vel sem
-                                dictum is rhoncus elit sed.</p>
-                            <div class="services-two_bottom">
-                                <a href="single_services.blade.php" class="services-one_btn">Read More</a>
-                                <a href="single_services.blade.php" class="services-one_arrow"><span
-                                        class="icon-right-arrow"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms"
-                     style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <!--Services Two Single-->
-                    <div class="services-two_single">
-                        <div class="services-two_img-box">
-                            <div class="services-two_img">
-                                <img src="assets/img/service/service_4.jpg" alt="">
-                            </div>
-                            <div class="services-two_icon">
-                                <img src="assets/img/icon/can.png" alt="">
-                            </div>
-                        </div>
-                        <div class="services-two_content">
-                            <h3 class="services-two_title"><a href="single_services.blade.php">Aluminium Recycling</a></h3>
-                            <p class="services-two_text">Lorem ipsum dolor sit donec amet tristique ante vel sem
-                                dictum is rhoncus elit sed.</p>
-                            <div class="services-two_bottom">
-                                <a href="single_services.blade.php" class="services-one_btn">Read More</a>
-                                <a href="single_services.blade.php" class="services-one_arrow"><span
-                                        class="icon-right-arrow"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms"
-                     style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <!--Services Two Single-->
-                    <div class="services-two_single">
-                        <div class="services-two_img-box">
-                            <div class="services-two_img">
-                                <img src="assets/img/service/service_5.jpg" alt="">
-                            </div>
-                            <div class="services-two_icon">
-                                <img src="assets/img/icon/tv.png" alt="">
-                            </div>
-                        </div>
-                        <div class="services-two_content">
-                            <h3 class="services-two_title"><a href="single_services.blade.php">Electrical Recycling</a>
-                            </h3>
-                            <p class="services-two_text">Lorem ipsum dolor sit donec amet tristique ante vel sem
-                                dictum is rhoncus elit sed.</p>
-                            <div class="services-two_bottom">
-                                <a href="single_services.blade.php" class="services-one_btn">Read More</a>
-                                <a href="single_services.blade.php" class="services-one_arrow"><span
-                                        class="icon-right-arrow"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms"
-                     style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <!--Services Two Single-->
-                    <div class="services-two_single">
-                        <div class="services-two_img-box">
-                            <div class="services-two_img">
-                                <img src="assets/img/service/service_6.jpg" alt="">
-                            </div>
-                            <div class="services-two_icon">
-                                <img src="assets/img/icon/metal.png" alt="">
-                            </div>
-                        </div>
-                        <div class="services-two_content">
-                            <h3 class="services-two_title"><a href="single_services.blade.php">Metal Recycling</a></h3>
-                            <p class="services-two_text">Lorem ipsum dolor sit donec amet tristique ante vel sem
-                                dictum is rhoncus elit sed.</p>
-                            <div class="services-two_bottom">
-                                <a href="single_services.blade.php" class="services-one_btn">Read More</a>
-                                <a href="single_services.blade.php" class="services-one_arrow"><span
-                                        class="icon-right-arrow"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

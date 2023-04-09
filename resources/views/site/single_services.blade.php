@@ -10,8 +10,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcroumb-title text-center">
-                        <h1>Plastic Recycling</h1>
-                        <h6><a href="index.blade.php">Home</a> / Plastic Recycling</h6>
+                        <h1>{{ app()->getLocale() == 'ar' ? $data['single_service']->title_ar : $data['single_service']->title_en }}</h1>
+                        <h6><a href="{{ route('home') }}">{{ trans('site.home') }}</a>
+                            / {{ app()->getLocale() == 'ar' ? $data['single_service']->title_ar : $data['single_service']->title_en }}
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -27,33 +29,22 @@
                     <div class="service-details_sidebar">
                         <div class="service-details_sidebar-service">
                             <ul class="service-details_sidebar-service-list list-unstyled">
-                                <li class="d-block current"><a href="single_services.html">Waste Mangment<span> <i
-                                                class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li class="d-block"><a href="single_services.html">Plastic Recycling<span> <i
-                                                class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li class="d-block"><a href="single_services.html">Paper Recycling<span> <i
-                                                class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li class="d-block"><a href="single_services.html">Glass Recycling<span> <i
-                                                class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li class="d-block"><a href="single_services.html">Aluminium Recycling<span> <i
-                                                class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li class="d-block"><a href="single_services.html">Electrical Recycling<span> <i
-                                                class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li class="d-block"><a href="single_services.html">Metal Recycling<span> <i
-                                                class="fas fa-long-arrow-alt-right"></i></span></a></li>
-
+                                @foreach ($data['services'] as $service)
+                                    <li class="d-block current"><a href="single_services.html">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}<span> <i
+                                                    class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="service-details_need-help">
                             <div class="service-details_need-help-bg">
                             </div>
-                            <h2 class="service-details_need-help-title">Contact with us for any advice</h2>
+                            <h2 class="service-details_need-help-title">{{ trans('site.contact_with_us_for_any_advice') }}</h2>
                             <div class="service-details_need-help-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="service-details_need-help-contact">
-                                <p>Call Anytime</p>
-                                <a href="tel:01087269541">01087269541</a>
+                                <p>{{ trans('site.call_anytime') }}</p>
+                                <a href="{{ $setting->phone }}">{{ $setting->phone }}</a>
                             </div>
                         </div>
 
@@ -66,16 +57,16 @@
                             <div class="splide__track">
                                 <ul class="splide__list">
                                     <li class="splide__slide">
-                                        <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
+                                        <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
                                     </li>
                                     <li class="splide__slide">
-                                        <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
+                                        <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
                                     </li>
                                     <li class="splide__slide">
-                                        <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
+                                        <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
                                     </li>
                                     <li class="splide__slide">
-                                        <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
+                                        <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
                                     </li>
                                 </ul>
                             </div>
@@ -84,16 +75,16 @@
 
                         <ul id="thumbnails" class="thumbnails">
                             <li class="thumbnail">
-                                <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
+                                <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
                             </li>
                             <li class="thumbnail">
-                                <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
+                                <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
                             </li>
                             <li class="thumbnail">
-                                <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
+                                <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
                             </li>
                             <li class="thumbnail">
-                                <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
+                                <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
                             </li>
                         </ul>
 
@@ -103,7 +94,7 @@
 
                         </div> -->
                         <div class="service-details_content">
-                            <h3 class="service-details_title">Plastic Recycling</h3>
+                            <h3 class="service-details_title">{{ app()->getLocale() == 'ar' ? $data['single_service']->title_ar : $data['single_service']->title_en }}</h3>
                             <p class="service-details_text-1">More than 35 million tons of plastics were generated in
                                 the United States in 2018 and only 8.7 percent was recycled. Some types of plastics are
                                 not accepted in community recycling programs. Check with your local recycling program to

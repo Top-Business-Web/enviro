@@ -9,10 +9,10 @@
                         <img src="assets/img/logo.png" alt="no-logo"/>
                     </div>
                     <div class="contact-info">
-                        <p><b>Location:</b> egypt</p>
-                        <p><b>Phone:</b> 01087269541</p>
-                        <p><b>E-mail:</b> info@enviro.com</p>
-                        <p><b>Opening Hour:</b> 08.00 AM-09.00 PM</p>
+                        <p><b>{{ trans('site.location') }}:</b> egypt</p>
+                        <p><b>{{ trans('site.phone') }}:</b> 01087269541</p>
+                        <p><b>{{ trans('site.email') }}:</b> info@enviro.com</p>
+                        <p><b>{{ trans('site.opening_hour') }}:</b> 08.00 AM-09.00 PM</p>
                     </div>
 
                 </div>
@@ -20,7 +20,7 @@
 
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <h6>Company</h6>
+                            <h6>{{ trans('site.company') }}</h6>
                             <ul>
                                 <li>
                                     <a href="about.html">About Us</a>
@@ -30,7 +30,7 @@
                             </ul>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
-                            <h6>Services</h6>
+                            <h6>{{ trans('site.services') }}</h6>
                             <ul>
                                 <li>
                                     <a href="single_services.html">waste Mangment</a>
@@ -49,12 +49,12 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="subscribe-form">
-                        <h6>Newsletter</h6>
+                        <h6>{{ trans('site.news_letter') }}</h6>
                         <form action="index.html">
                             <input type="email" placeholder="Your email"/>
                             <button type="submit"><i class="fas fa-envelope"></i></button>
                         </form>
-                        <p>Stay tuned for our latest news</p>
+                        <p>{{ trans('site.Stay_tuned_for_our_latest_news') }}</p>
                     </div>
                 </div>
             </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\FaqsController;
 use App\Http\Controllers\Front\ProductController;
 use App\Http\Controllers\Front\QuoteController;
 use App\Http\Controllers\Front\ServiceController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,32 +23,38 @@ use App\Http\Controllers\Front\ServiceController;
 |
 */
 
-#### Home ####
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+    #### Home ####
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
 #### About ####
-Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 #### Blog ####
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/blogDetails', [BlogController::class, 'blogDetails'])->name('blogDetails');
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blogDetails', [BlogController::class, 'blogDetails'])->name('blogDetails');
 
 #### Career ####
-Route::get('/career', [CareerController::class, 'index'])->name('career');
+    Route::get('/career', [CareerController::class, 'index'])->name('career');
 
 #### Contact ####
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 #### Faqs ####
-Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs');
+    Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs');
 
 #### Project ####
-Route::get('/product', [ProductController::class, 'index'])->name('product');
-Route::get('/singleProduct', [ProductController::class, 'singleProduct'])->name('singleProduct');
+    Route::get('/product', [ProductController::class, 'index'])->name('product');
+    Route::get('/singleProduct', [ProductController::class, 'singleProduct'])->name('singleProduct');
 
 #### Quote ####
-Route::get('/quote', [QuoteController::class, 'index'])->name('quote');
+    Route::get('/quote', [QuoteController::class, 'index'])->name('quote');
 
 ### Service ####
-Route::get('/service', [ServiceController::class, 'index'])->name('service');
-Route::get('/singleService', [ServiceController::class, 'singleService'])->name('singleService');
+    Route::get('/service', [ServiceController::class, 'index'])->name('service');
+    Route::get('/singleService/{id}', [ServiceController::class, 'singleService'])->name('singleService');
+});

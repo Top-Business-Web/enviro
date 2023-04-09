@@ -107,9 +107,6 @@
                 uploadedArea.innerHTML = uploadHTML;
             }
         }
-    </script>
-
-    <script>
 
         var splide = new Splide( '#main-carousel', {
             pagination: false,
