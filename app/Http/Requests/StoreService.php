@@ -24,8 +24,9 @@ class StoreService extends FormRequest
     public function rules()
     {
         return [
-            'images*' => 'image|nullable',
+            'images*' => 'image|required',
             'images' => 'array|nullable',
+            'image_logo' => 'image|required',
             'title_ar' => 'required',
             'title_en' => 'required',
             'desc_ar' => 'required',

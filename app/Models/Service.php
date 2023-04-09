@@ -9,7 +9,14 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $guarded  = [];
+    protected $fillable = [
+        'images',
+        'image_logo',
+        'title_ar',
+        'title_en',
+        'desc_ar',
+        'desc_en',
+    ];
 
     protected $casts = [
         'images' => 'array'

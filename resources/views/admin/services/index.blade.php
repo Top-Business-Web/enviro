@@ -25,6 +25,7 @@
                             <tr class="fw-bolder text-muted bg-light">
                                 <th>#</th>
                                 <th>الصورة</th>
+                                <th>صورة لوجو</th>
                                 <th>العنوان</th>
                                 <th>الوصف</th>
                                 <th class="rounded-end">العمليات</th>
@@ -92,6 +93,7 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'images', name: 'images'},
+            {data: 'image_logo', name: 'image_logo'},
             {data: 'title_ar', name: 'title_ar'},
             {data: 'desc_ar', name: 'desc_ar'},
             {data: 'action', name: 'action', orderable: false, searchable: false},

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class BgImage extends Model
 {
     use HasFactory;
+
+    protected $table = 'bg_images';
+
+    protected $guarded = [];
+
 }

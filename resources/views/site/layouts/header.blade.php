@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12">
                 <div class="contact-info">
-                    <i class="fas fa-location-dot me-1 ms-2"></i> egypt
-                    <i class="fas fa-envelope me-1 ms-2"></i> info@enviro.com
-                    <i class="fas fa-phone me-1 ms-2"></i> 01087269541
+                    <i class="fas fa-location-dot me-1 ms-2"></i> {{ app()->getLocale() == 'ar' ? $setting->address_ar : $setting->address_en }}
+                    <i class="fas fa-envelope me-1 ms-2"></i> {{ $setting->email }}
+                    <i class="fas fa-phone me-1 ms-2"></i> {{ $setting->phone }}
                 </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12 text-end">
@@ -17,7 +17,19 @@
                     </div>
                     <div class="quick_link">
                         <ul>
-                            <li><a href="{{ route('faqs') }}">FAQs</a></li>
+                            <li><a href="{{ route('faqs') }}">{{ trans('site.faqs') }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="lang-list">
+                        <ul>
+                            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li>
+                                    <a rel="alternate" hreflang="{{ $localeCode }}"
+                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -34,7 +46,7 @@
             <div class="container-fluid">
                 <div class="header-inner-box">
                     <div class="logo">
-                        <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/front/') }}/assets/img/logo.png" alt=""/></a>
+                        <a class="navbar-brand" href="index.html"><img src="{{ asset($setting->logo) }}" alt=""/></a>
                     </div>
 
                     <div class="main-menu">
@@ -51,15 +63,15 @@
                                  id="navbarSupportedContent">
                                 <ul class="navbar-nav m-auto">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="{{ route('home') }}">Home
+                                        <a class="nav-link active" href="{{ route('home') }}">{{ trans('site.home') }}
                                             <span class="sub-nav-toggler"> </span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                                        <a class="nav-link" href="{{ route('about') }}">{{ trans('site.about_us') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('service') }}">Services
+                                        <a class="nav-link" href="{{ route('service') }}">{{ trans('site.services') }}
                                             <span class="sub-nav-toggler"> </span>
                                         </a>
                                         <!-- <ul class="sub-menu">
@@ -73,18 +85,18 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('product') }}">products
+                                        <a class="nav-link" href="{{ route('product') }}">{{ trans('site.products') }}
                                             <!-- <span class="sub-nav-toggler"> </span> -->
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('career') }}">career</a>
+                                        <a class="nav-link" href="{{ route('career') }}">{{ trans('site.career') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('blog') }}">news</a>
+                                        <a class="nav-link" href="{{ route('blog') }}">{{ trans('site.news') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                                        <a class="nav-link" href="{{ route('contact') }}">{{ trans('site.contact') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -92,7 +104,7 @@
                     </div>
 
                     <div class="header-btn">
-                        <a href="{{ route('quote') }}" class="main-btn primary">Get a Quote</a>
+                        <a href="{{ route('quote') }}" class="main-btn primary">{{ trans('site.get_a_quote') }}</a>
                     </div>
                 </div>
             </div>

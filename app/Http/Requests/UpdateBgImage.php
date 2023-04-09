@@ -24,15 +24,28 @@ class UpdateBgImage extends FormRequest
     public function rules()
     {
         return [
-            'images' => 'required|image',
+            'about_img' => 'image',
+            'service_img' => 'image',
+            'product' => 'image',
+            'career' => 'image',
+            'news_img' => 'image',
+            'contact_img' => 'image',
+            'faqs_img' => 'image',
+            'quote_img' => 'image',
         ];
     }
 
     public function messages()
     {
         return [
-            'images.required' => 'الصورة مطلوبة',
-            'images.image' => ' يجب ان تكون صورة',
+            'about_img.image' => 'يجب ان تكون صورة',
+            'service_img.image' => 'يجب ان تكون صورة',
+            'product.image' => 'يجب ان تكون صورة',
+            'career.image' => 'يجب ان تكون صورة',
+            'news_img.image' => 'يجب ان تكون صورة',
+            'contact_img.image' => 'يجب ان تكون صورة',
+            'faqs_img.image' => 'يجب ان تكون صورة',
+            'quote_img.image' => 'يجب ان تكون صورة',
         ];
     }
 }

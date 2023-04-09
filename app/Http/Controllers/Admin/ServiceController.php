@@ -28,6 +28,16 @@ class ServiceController extends Controller
                                 </button>
                            ';
                 })
+                ->editColumn('images', function ($services) {
+                    return '
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($services->images[0]) . '">
+                    ';
+                })
+                ->editColumn('image_logo', function ($services) {
+                    return '
+                    <img alt="image" onclick="window.open(this.src)" class="avatar avatar-md rounded-circle" src="' . asset($services->image_logo) . '">
+                    ';
+                })
                 ->escapeColumns([])
                 ->make(true);
         } else {
@@ -50,6 +60,9 @@ class ServiceController extends Controller
                 $inputs['images'][] = $this->saveImage($file,'assets/uploads/services','photo');
             }
         }
+        if($request->has('image_logo')){
+                $inputs['image_logo'] = $this->saveImage($request->image_logo,'assets/uploads/services','photo');
+        }
 
         if (Service::create($inputs)) {
             return response()->json(['status' => 200]);
@@ -58,10 +71,10 @@ class ServiceController extends Controller
         }
     }
 
-    public function edit(Service $subcategory)
+    public function edit(Service $service)
     {
         $data['categories'] = Service::all();
-        return view('Admin/services/parts/edit', compact('subcategory', 'data'));
+        return view('Admin/services/parts/edit', compact('service', 'data'));
     }
 
     public function update(UpdateService $request, $id)
@@ -69,6 +82,17 @@ class ServiceController extends Controller
         try {
             $services = Service::findOrFail($id);
             $inputs = $request->all();
+
+            if($request->has('files')){
+                foreach($request->file('files') as $file)
+                {
+                    $inputs['images'][] = $this->saveImage($file,'assets/uploads/services','photo');
+                }
+            }
+
+            if($request->has('image_logo')){
+                $inputs['image_logo'] = $this->saveImage($request->image_logo,'assets/uploads/services','photo');
+            }
 
             if ($services->update($inputs)) {
                 return response()->json(['status' => 200]);

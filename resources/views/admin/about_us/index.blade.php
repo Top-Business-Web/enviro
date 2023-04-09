@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <label for="name" class="form-control-label">صورة</label>
                                 <input type="file" class="dropify" name="image"
-                                       data-default-file="{{asset('assets/uploads/logo-social.png')}}"
+                                       data-default-file="{{asset($about_us->image)}}"
                                        accept="image/png,image/webp , image/gif, image/jpeg,image/jpg"/>
                                 <span class="form-text text-danger text-center">مسموح فقط بالصيغ التالية : png, gif, jpeg, jpg,webp</span>
                             </div>

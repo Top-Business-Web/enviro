@@ -1,31 +1,53 @@
-<form id="updateForm" method="POST" enctype="multipart/form-data" action="{{route('subcategories.update',$subcategory->id)}}">
+<form id="updateForm" method="POST" enctype="multipart/form-data" action="{{route('services.update',$service->id)}}">
     @csrf
     @method('PUT')
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="name" class="form-control-label">الصورة</label>
+                <input type="file" class="dropify" name="files[]" multiple="multiple"
+                       data-default-file="{{asset('assets/uploads/post.png')}}"
+                       accept="image/png,image/webp , image/gif, image/jpeg,image/jpg"/>
+                <span
+                    class="form-text text-danger text-center">مسموح فقط بالصيغ التالية : png, gif, jpeg, jpg,webp</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="name" class="form-control-label">صورة لوجو</label>
+                <input type="file" class="dropify" name="image_logo"
+                       data-default-file="{{asset('assets/uploads/post.png')}}"
+                       accept="image/png,image/webp , image/gif, image/jpeg,image/jpg"/>
+                <span
+                    class="form-text text-danger text-center">مسموح فقط بالصيغ التالية : png, gif, jpeg, jpg,webp</span>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label for="name" class="form-control-label">العنوان بالعربي</label>
-                <input type="text" class="form-control" value="{{ $subcategory->title_ar }}" name="title_ar" id="title_ar">
+                <input type="text" class="form-control" value="{{ $service->title_ar }}" name="title_ar" id="title_ar">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label for="email" class="form-control-label">العنوان بالانجليزي</label>
-                <input type="text" class="form-control" value="{{ $subcategory->title_en }}" name="title_en" id="title_en">
+                <input type="text" class="form-control" value="{{ $service->title_en }}" name="title_en" id="title_en">
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="name" class="form-control-label">لفئة</label>
-                <select name="categories_id" class="form-control">
-                    @foreach($data['categories'] as $category)
-                        <option style="text-align: center" value="{{ $category->id }}"
-                            {{ $subcategory->categories_id == $category->id ? ' selected' : '' }}
-                        >{{ $category->title_ar }}</option>
-                    @endforeach
-                </select>
+                <label for="desc_ar" class="form-control-label">الوصف بالعربي</label>
+                <textarea class="form-control" rows="8" name="desc_ar" id="desc_ar">{{ $service->desc_ar }}</textarea>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="desc_en" class="form-control-label">الوصف بالانجليزي</label>
+                <textarea class="form-control" rows="8" name="desc_en" id="desc_ar">{{ $service->desc_ar }}</textarea>
             </div>
         </div>
     </div>
@@ -35,4 +57,7 @@
     </div>
 </form>
 
+<script>
+    $('.dropify').dropify()
+</script>
 

@@ -7,14 +7,14 @@
 
     <!-- Breadcroumb Area -->
 
-    <div class="breadcroumb-area bread-bg">
+    <div class="breadcroumb-area bread-bg" style="background-image: url({{ asset($bgImages->about_img) }})">
         <div class="overlay-2"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcroumb-title text-center">
-                        <h1>About</h1>
-                        <h6><a href="index.blade.php">Home</a> / About</h6>
+                        <h1>{{ trans('site.about_us') }}</h1>
+                        <h6><a href="{{ route('home') }}">{{ trans('site.home') }}</a> / {{ trans('site.about_us') }}</h6>
                     </div>
                 </div>
             </div>
@@ -31,22 +31,20 @@
                     <div class="about-content-wrap">
                         <div class="section-title">
                             <!-- <p>Complete Commercial And Residential Recycling Services!</p> -->
-                            <h2>The Pioneers In The Recycling Service!</h2>
+                            <h2>{{ trans('site.The_pioneers') }}</h2>
                         </div>
                         <div class="about-content">
                             <div class="row">
                                 <div class="col-12 col-lg-12">
                                     <div class="about-content-left">
-                                        <p class="highlight">Enviro group is an Egyptian company specialized in in
-                                            plastic recycling for production of different types of recycled pellets to
-                                            satisfy the needs of Egyptian market.
+                                        <p class="highlight">{{ trans('site.enviro_group_is') }}
                                         </p>
 
-                                        <p>Enviro group aims to expand its activities through backward integration,
-                                            forward integration strategies.
+                                        <p>
+                                            {{ trans('site.enviro_group_aims') }}
                                         </p>
 
-                                        <button class="main-btn bg-brown mb-3">Profile Company</button>
+                                        <button class="main-btn bg-brown mb-3">{{ trans('site.Profile_company') }}</button>
                                         <div class="row mt-20">
                                             <div class="col-lg-4 col-md-4 col-12">
                                                 <div class="featured-area">
@@ -55,7 +53,7 @@
                                                     </div>
                                                     <div class="featured-content">
                                                         <div class="featured-title">
-                                                            <h5>Ontime at <br>Services</h5>
+                                                            <h5>{{ trans('site.ontime_at') }} <br>{{ trans('site.services') }}</h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -67,7 +65,7 @@
                                                     </div>
                                                     <div class="featured-content">
                                                         <div class="featured-title">
-                                                            <h5>24/7 <br>Services</h5>
+                                                            <h5>24/7 <br>{{ trans('site.services') }}</h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -79,7 +77,7 @@
                                                     </div>
                                                     <div class="featured-content">
                                                         <div class="featured-title">
-                                                            <h5>Affordable <br>Cost</h5>
+                                                            <h5>{{ trans('site.affordable') }} <br>{{ trans('site.cost') }}</h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,15 +91,15 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="about-img">
-                        <img src="assets/img/about/about.jpg" alt="">
+                        <img src="{{ asset('assets/front') }}/assets/img/about/about.jpg" alt="">
                         <div class="about-counter">
                             <div class="counter-icon">
-                                <img src="assets/img/icon/customer-service.png" alt="" style="width: 60px;">
+                                <img src="{{ asset('assets/front') }}/assets/img/icon/customer-service.png" alt="" style="width: 60px;">
                             </div>
                             <div class="counter-number">
-                                <span class="counting" data-counterup-nums="154">4754</span>
+                                <span class="counting" data-counterup-nums="">{{ $aboutUs->happy_clients }}</span>
                             </div>
-                            <h6>Happy Customers</h6>
+                            <h6>{{ trans('site.Happy_customers') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -118,7 +116,7 @@
                 <div class="col-xl-6">
                     <div class="why-choose-two_left">
                         <div class="why-choose-two_img">
-                            <img src="assets/img/choose_us.jpg" alt="">
+                            <img src="{{ asset('assets/front') }}/assets/img/choose_us.jpg" alt="">
                             <div class="why-choose-two_video-link">
                                 <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
                                     <div class="why-choose-one_video-icon">
@@ -132,17 +130,14 @@
                 <div class="col-xl-6">
                     <div class="why-choose-two_right">
                         <div class="section-title text-left">
-                            <h6>Our Pontential benefits</h6>
-                            <h2>Why you Should Choose Our Services</h2>
+                            <h6>{{ trans('site.our_pontential_benefits') }}</h6>
+                            <h2>{{ trans('site.why_you_should_choose_our_services') }}</h2>
                         </div>
                         <p class="highlight">
-                            Enviro group for environmental solutions started its activity in plastic recycling in 2021
-                            by producing high quality recycled LDPE and HDPE for Egyptian market.
+                            {{ trans('site.enviro_group_for_environmental') }}
                         </p>
-                        <p class="why-choose-two_right-text">In 2022, enviro group starts procedures to expand its
-                            activities by backward integration through waste management procedures. The company aims to
-                            be fully licensed company from Egyptian government to be compatible with waste management
-                            procedures.
+                        <p class="why-choose-two_right-text">
+                            {{ trans('site.in_2022_enviro_group_starts') }}
                         </p>
                         <ul class="list-unstyled why-choose-two_points">
                             <li>
@@ -150,7 +145,7 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <div class="text">
-                                    <p>Convenient Pickup</p>
+                                    <p>{{ trans('site.comfort_pickup') }}</p>
                                 </div>
                             </li>
                             <li>
@@ -158,7 +153,7 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <div class="text">
-                                    <p>Reducing Waste</p>
+                                    <p>{{ trans('site.reducing_waste') }}</p>
                                 </div>
                             </li>
                         </ul>
@@ -191,12 +186,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-12">
-                    <h2>Let's Get Your Project <b>Started</b> Today!</h2>
+                    <h2>{{ trans('site.lets_get_your_project') }} <b>{{ trans('site.started') }}</b> {{ trans('site.today') }}!</h2>
                 </div>
                 <div class="col-lg-6 offset-lg-1 col-12">
                     <div class="cta-btn-2 mt-20">
-                        <a href="quotation.blade.php" class="main-btn">Request a Pickup</a>
-                        <a href="contact.blade.php" class="main-btn white">Contact with Us</a>
+                        <a href="{{ route('quote') }}" class="main-btn">{{ trans('site.get_a_quote') }}</a>
+                        <a href="{{ route('contact') }}" class="main-btn white">{{ trans('site.contact_with_us') }}</a>
                     </div>
                 </div>
             </div>

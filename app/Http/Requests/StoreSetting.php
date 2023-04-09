@@ -35,6 +35,7 @@ class StoreSetting extends FormRequest
             'address_en' => 'required',
             'open' => 'nullable',
             'email' => 'email|required',
+            'phone' => 'required',
             'facebook' => 'nullable',
             'youtube' => 'nullable',
             'twitter' => 'nullable',
@@ -54,6 +55,7 @@ class StoreSetting extends FormRequest
             'location_url.required' => 'الموقع مطلوب',
             'address_ar.required' => 'المكان بالعربي مطلوب',
             'address_en.required' => 'المكان بالانجليزي مطلوب',
+            'phone.required' => 'المكان بالانجليزي مطلوب',
             'email.required' => 'الايميل مطلوب',
             'email.email' => 'الايميل يجب ان يكون صحيح',
         ];
