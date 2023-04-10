@@ -79,7 +79,7 @@ return [
 
     #### Footer
     "location" => "الموقع" ,
-     'open_hour' => "ساعة الافتتاح" ,
+     'opening_hour' => "ساعة الافتتاح" ,
      'our_product' => 'منتجنا' ,
      'news_letter' => "النشرة الإخبارية",
     'company' => 'شركة',
@@ -103,6 +103,17 @@ return [
 
     #### Single service
     'contact_with_us_for_any_advice' => 'تواصل معنا للحصول على أي نصيحة اتصل بنا للحصول على أي نصيحة',
-    'call_anytime' => 'اتصل في اي وقت'
+    'call_anytime' => 'اتصل في اي وقت',
+
+    #### products
+    'category' => 'فئة',
+    'categories' => 'فئات',
+    'description' => 'وصف',
+    'additional_info' => 'معلومات اضافية',
+    'capacity' => 'السعة',
+    'color' => 'لون',
+    'water_resistant' => 'مضاد للماء',
+    'material' => 'مادة',
+    'related_products' => 'المنتجات المتعلقة به',
 
 ];

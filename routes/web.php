@@ -47,9 +47,9 @@ Route::group(
 #### Faqs ####
     Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs');
 
-#### Project ####
+#### Product ####
     Route::get('/product', [ProductController::class, 'index'])->name('product');
-    Route::get('/singleProduct', [ProductController::class, 'singleProduct'])->name('singleProduct');
+    Route::get('/singleProduct/{id}', [ProductController::class, 'singleProduct'])->name('singleProduct');
 
 #### Quote ####
     Route::get('/quote', [QuoteController::class, 'index'])->name('quote');

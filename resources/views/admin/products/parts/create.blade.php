@@ -75,6 +75,37 @@
                     <textarea class="form-control" rows="8" name="desc_en" id="desc_en"></textarea>
                 </div>
             </div>
+
+            <label class="control-label">وصف اضافي</label>
+            <div class="col-4">
+                <div class="form-group itemKeys">
+                    <label class="control-label">اسم</label>
+                    <input type="text" name="items[0][key]" class="form-control InputKey">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group itemItems">
+                    <label class="control-label">القيمة</label>
+                    <input type="text" name="items[0][value]" class="form-control InputItem">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group ButtonItems">
+                    <button type="button" class="btn btn-sm btn-primary MoreItem">عنصر اخر</button>
+                </div>
+            </div>
+            <script>
+                var i =0;
+                $('.MoreItem').on('click', function () {
+                    var Item = $('.InputItemExtra').last();
+                    if (Item.val() !== '') {
+                        ++i;
+                        $('.itemKeys').append('<label class="control-label">اسم</label><input type="text" name="items['+i+'][key]" class="form-control InputKeyExtra">')
+                        $('.itemItems').append(' <label class="control-label">القيمة</label><input type="text" name="items['+i+'][value]" class="form-control InputItemExtra">')
+                    }
+                })
+            </script>
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>

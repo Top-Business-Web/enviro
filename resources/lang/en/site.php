@@ -106,4 +106,15 @@ return [
     #### Service_single
     'contact_with_us_for_any_advice' => 'Contact with us for any advice',
     'call_anytime' => 'Call anytime',
+
+    #### products
+    'category' => 'Category',
+    'categories' => 'Categories',
+    'description' => 'Description',
+    'additional_info' => 'Additional Info',
+    'capacity' => 'Capacity',
+    'color' => 'Color',
+    'water_resistant' => 'Water Resistant',
+    'material' => 'Material',
+    'related_products' => 'Related products',
 ];

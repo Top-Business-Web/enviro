@@ -28,7 +28,6 @@
                                 <th>عنوان</th>
                                 <th>عنوان الفرعي</th>
                                 <th>التفاصيل</th>
-                                <th>الوصف</th>
                                 <th class="rounded-end">العمليات</th>
                             </tr>
                             </thead>
@@ -97,7 +96,6 @@
             {data: 'title_ar', name: 'title_ar'},
             {data: 'sub_title_ar', name: 'sub_title_ar'},
             {data: 'desc_ar', name: 'desc_ar'},
-            {data: 'details', name: 'details'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
         showData('{{route('product.index')}}', columns);
