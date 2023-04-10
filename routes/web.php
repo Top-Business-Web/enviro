@@ -40,6 +40,7 @@ Route::group(
 
 #### Career ####
     Route::get('/career', [CareerController::class, 'index'])->name('career');
+    Route::post('/career/store', [CareerController::class, 'storeCareer'])->name('career.store');
 
 #### Contact ####
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
