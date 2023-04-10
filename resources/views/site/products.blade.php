@@ -13,8 +13,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcroumb-title text-center">
-                        <h1>products</h1>
-                        <h6><a href="index.blade.php">Home</a> / products</h6>
+                        <h1>{{ trans('site.products') }}</h1>
+                        <h6><a href="{{ route('home') }}">{{ trans('site.home') }}</a> / {{ trans('site.products') }}
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -27,57 +28,21 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="row">
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="project-single">
-                                <div class="project-img">
-                                    <img src="assets/img/project/2.jpg" alt="">
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-title text-center">
-                                        <a href="single-products.blade.php" class="fs-5">Plastic Recycling Services</a>
+                        @foreach($data['products'] as $product)
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="project-single">
+                                    <div class="project-img">
+                                        <img src="{{ asset($product->images[0]) }}" alt="">
+                                    </div>
+                                    <div class="project-content">
+                                        <div class="project-title text-center">
+                                            <a href="{{ route('singleProduct', $product->id) }}"
+                                               class="fs-5">{{ $product->title_ar }}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="project-single">
-                                <div class="project-img">
-                                    <img src="assets/img/project/2.jpg" alt="">
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-title text-center">
-                                        <a href="single-products.blade.php" class="fs-5">Plastic Recycling Services</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="project-single">
-                                <div class="project-img">
-                                    <img src="assets/img/project/2.jpg" alt="">
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-title text-center">
-                                        <a href="single-products.blade.php" class="fs-5">Plastic Recycling Services</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="project-single">
-                                <div class="project-img">
-                                    <img src="assets/img/project/2.jpg" alt="">
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-title text-center">
-                                        <a href="single-products.blade.php" class="fs-5">Plastic Recycling Services</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
@@ -91,74 +56,43 @@
                     </div>
                     <div class="widget widget-categories" style="padding: 30px;">
                         <div class="widget-title">
-                            <h5>categories</h5>
+                            <h5>{{ trans('site.categories')  }}</h5>
                         </div>
                         <div class="widget-content">
                             <ul class="list-unstyled">
-                                <li data-bs-toggle="collapse" href="#collapseExample" role="button"
-                                    aria-expanded="false" aria-controls="collapseExample">
-                                    <a href="projects.html">recycle raw materials</a
-                                    ><span>2</span>
-                                </li>
-                                <ul class="list-unstyled collapse" id="collapseExample">
-                                    <li>
-                                        <a href="projects.html">PE (POLYETHYLENE)</a>
+                                @foreach ($data['categories'] as $category)
+                                    <li data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        <a href="projects.html">{{ $category->title_ar }}</a
+                                        ><span>2</span>
                                     </li>
-                                    <li>
-                                        <a href="projects.html">PP (POLYPROPYLENE)</a>
-                                    </li>
-                                </ul>
-                                <li data-bs-toggle="collapse" href="#collapseExample1" role="button"
-                                    aria-expanded="false" aria-controls="collapseExample">
-                                    <a href="projects.html">Final Product</a
-                                    ><span>2</span>
-                                </li>
-                                <ul class="list-unstyled collapse" id="collapseExample1">
-                                    <li>
-                                        <a href="projects.html">PE (POLYETHYLENE)</a>
-                                    </li>
-                                    <li>
-                                        <a href="projects.html">solar modules</a>
-                                    </li>
-                                </ul>
+                                    <ul class="list-unstyled collapse" id="collapseExample">
+                                        <li>
+                                            <a href="">hi</a>
+                                        </li>
+                                    </ul>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
 
                     <hr>
                     <div class="sidebar_single sidebar_post" style="padding: 30px; margin-bottom: 30px;">
-                        <h3 class="sidebar_title mb-3" style="margin-left: 0;">latest Products</h3>
+                        <h3 class="sidebar_title mb-3" style="margin-left: 0;">{{ trans('site.latest_products') }}</h3>
                         <ul class="sidebar_post-list list-unstyled">
-                            <li style="padding: 0; margin-bottom: 15px;">
-                                <div class="sidebar_post-image">
-                                    <img src="assets/img/blog/lp-1-1.jpg" alt="">
-                                </div>
-                                <div class="sidebar_post-content">
-                                    <h3>
-                                        <a href="single-products.blade.php">Bio-based materials used to salvage</a>
-                                    </h3>
-                                </div>
-                            </li>
-                            <li style="padding: 0; margin-bottom: 15px;">
-                                <div class="sidebar_post-image">
-                                    <img src="assets/img/blog/lp-1-2.jpg" alt="">
-                                </div>
-                                <div class="sidebar_post-content">
-                                    <h3>
-                                        <a href="single-products.blade.php">Smart & Reduce Recycling Solutions</a>
-                                    </h3>
-                                </div>
-                            </li>
-                            <li style="padding: 0; margin-bottom: 15px;">
-                                <div class="sidebar_post-image">
-                                    <img src="assets/img/blog/lp-1-3.jpg" alt="">
-                                </div>
-                                <div class="sidebar_post-content">
-                                    <h3>
-                                        <a href="single-products.blade.php">What are three benefits of recycling?</a>
-                                    </h3>
-                                </div>
-                            </li>
+                            <?php $products = \App\Models\Product::all()->take(4)->last()->get(); ?>
+                            @foreach($products as $product)
+                                <li style="padding: 0; margin-bottom: 15px;">
+                                    <div class="sidebar_post-image">
+                                        <img src="{{ asset($product->images[0]) }}" alt="">
+                                    </div>
+                                    <div class="sidebar_post-content">
+                                        <h3>
+                                            <a href="{{ route('singleProduct', $product->id) }}">{{ $product->title_ar }}</a>
+                                        </h3>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 

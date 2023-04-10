@@ -56,6 +56,10 @@ class ProductController extends Controller
             }
         }
 
+        if ($request->has('items')) {
+            $inputs['details'] = $request->items;
+        }
+
         if (Product::create($inputs)) {
             return response()->json(['status' => 200]);
         } else {
