@@ -143,4 +143,10 @@ return [
     'company_name_if_applicable' => 'اسم الشركة (اذا كان ملائم)',
     'submit' => 'يقدم',
 
+    #### Faqs
+    'faq' => 'الاسئلة الشائعة',
+    'if_you_dont_know_find_out' => 'إذا كنت لا تعرف ، اكتشف',
+    'frequently_asked_question' => 'أسئلة شائعة',
+
+
 ];

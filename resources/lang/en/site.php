@@ -143,4 +143,10 @@ return [
     'last_name' => 'Last Name',
     'company_name_if_applicable' => 'Company Name (If Applicable)',
     'submit' => 'submit',
+
+    #### Faqs
+    'faq' => 'Faq',
+    'if_you_dont_know_find_out' => 'If you don\'t know Find out',
+    'frequently_asked_question' => 'Frequently asked question',
+
 ];
