@@ -123,4 +123,13 @@ return [
     'salary' => 'المرتب',
     'send' => 'ارسال',
 
+    #### Contact
+    'drop_us_a_message' => 'اترك رسالتك',
+    'send_email' => 'ارسل ايميل',
+    'visit_office' => 'قم بزيارة المكتب',
+    'egypt' => 'مصر',
+    'subject' => 'موضوع',
+    'send_a_message' => 'ارسل رسالة',
+    'write_a_message' => 'اكتب رسالتك',
+
 ];

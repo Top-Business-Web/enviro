@@ -20,7 +20,7 @@
 
 
     <div class="section-career gray-bg section-padding">
-        <form class="careerForm" id="careerForm">
+            <form class="careerForm" id="careerForm">
             @csrf
             <div class="container">
                 <div class="section-title text-center">
@@ -75,6 +75,7 @@
                 </div>
 
             </div>
+        </form>
     </div>
 
     <script>
