@@ -132,4 +132,15 @@ return [
     'subject' => 'Subject',
     'send_a_message' => 'Send a Message',
     'write_a_message' => 'Write a Message',
+
+    #### Quote
+    'request_a_quote' => 'Request a Quote',
+    'are_you_interested_in_a_quotation' => 'Are you interested in a quotation',
+    'please_fill' => 'Please fill out the form to request a Quote or start the service',
+    'contact_information' => 'Contact Information',
+    'this_information' => 'This information will be used to contact you',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'company_name_if_applicable' => 'Company Name (If Applicable)',
+    'submit' => 'submit',
 ];

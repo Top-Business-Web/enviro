@@ -132,4 +132,15 @@ return [
     'send_a_message' => 'ارسل رسالة',
     'write_a_message' => 'اكتب رسالتك',
 
+    #### Quote
+    'request_a_quote' => 'تقديم طلب',
+    'are_you_interested_in_a_quotation' => 'هل أنت مهتم بتقديم طلبك',
+    'please_fill' => 'يرجى ملء النموذج لطلب عرض أسعار أو بدء الخدمة',
+    'contact_information' => 'معلومات الاتصال',
+    'this_information' => 'سيتم استخدام هذه المعلومات للاتصال بك',
+    'first_name' => 'الاسم الاول',
+    'last_name' => 'الاسم الثاني',
+    'company_name_if_applicable' => 'اسم الشركة (اذا كان ملائم)',
+    'submit' => 'يقدم',
+
 ];

@@ -55,6 +55,7 @@ Route::group(
 
 #### Quote ####
     Route::get('/quote', [QuoteController::class, 'index'])->name('quote');
+    Route::post('/quote/store', [QuoteController::class, 'storeQuote'])->name('quote.store');
 
 ### Service ####
     Route::get('/service', [ServiceController::class, 'index'])->name('service');
