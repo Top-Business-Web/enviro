@@ -44,6 +44,7 @@ Route::group(
 
 #### Contact ####
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::post('/contact/store', [ContactController::class, 'storeContact'])->name('contact.store');
 
 #### Faqs ####
     Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs');

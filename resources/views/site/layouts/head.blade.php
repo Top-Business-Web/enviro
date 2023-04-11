@@ -23,8 +23,7 @@
     <link href="{{ asset('assets/front/') }}/assets/css/owl.carousel.css" rel="stylesheet"/>
     <!-- Nice Select  -->
     <link href="{{ asset('assets/front/') }}/assets/css/nice-select.css" rel="stylesheet"/>
-    <!-- Style CSS -->
-    <link href="{{ asset('assets/front/') }}/assets/css/style.css" rel="stylesheet"/>
+
     <!-- Responsive CSS -->
     <link href="{{ asset('assets/front/') }}/assets/css/responsive.css" rel="stylesheet"/>
 
@@ -38,8 +37,24 @@
     <!-- font awesome -->
     <link href="{{ asset('assets/front/') }}/assets/css/all.min.css" rel="stylesheet"/>
 
-    <!-- Edit Style CSS -->
-    <link href="{{ asset('assets/front/') }}/assets/css/edit.css" rel="stylesheet"/>
+    @if(app()->getLocale() == 'en')
+
+        {{--  en  --}}
+
+        <!-- Style CSS -->
+        <link href="{{ asset('assets/front/') }}/assets/css/style.css" rel="stylesheet"/>
+
+        <!-- Edit Style CSS -->
+        <link href="{{ asset('assets/front/') }}/assets/css/edit.css" rel="stylesheet"/>
+
+        {{--  en  --}}
+    @else
+        {{--  ar  --}}
+
+        <!-- Rtl CSS -->
+        <link href="{{ asset('assets/front/assets/css/rtl.css') }}" rel="stylesheet"/>
+        {{--  ar  --}}
+    @endif
 
     <!-- jquery -->
     <script src="{{ asset('assets/front/') }}/assets/js/jquery-1.12.4.min.js"></script>

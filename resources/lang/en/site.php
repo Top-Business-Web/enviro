@@ -123,4 +123,13 @@ return [
     'we_wish' => 'We wish you the best of luck',
     'salary' => 'Salary',
     'send' => 'Send',
+
+    #### Contact
+    'drop_us_a_message' => 'Drop us a message',
+    'send_email' => 'Send Email',
+    'visit_office' => 'Visit Office',
+    'egypt' => 'Egypt',
+    'subject' => 'Subject',
+    'send_a_message' => 'Send a Message',
+    'write_a_message' => 'Write a Message',
 ];
