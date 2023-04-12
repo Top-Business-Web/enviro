@@ -36,7 +36,7 @@
                                 <?php $services = \App\Models\Service::all()->take(6)->last()->get(); ?>
                                 @foreach($services as $service)
                                     <li>
-                                        <a href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}</a>
+                                        <p><a href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}</a></p>
                                     </li>
                                 @endforeach
                             </ul>
@@ -48,9 +48,10 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="subscribe-form">
                         <h6>{{ trans('site.news_letter') }}</h6>
-                        <form action="index.html">
-                            <input type="email" placeholder="Your email"/>
-                            <button type="submit"><i class="fas fa-envelope"></i></button>
+                        <form class="newsForm" id="newsForm">
+                            @csrf
+                            <input type="email" placeholder="{{ trans('site.email') }}" name="email"/>
+                            <button type="button" id="news-btn"><i class="fas fa-envelope"></i></button>
                         </form>
                         <p>{{ trans('site.Stay_tuned_for_our_latest_news') }}</p>
                     </div>
@@ -83,3 +84,45 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#news-btn').on('click', function (e) {
+        e.preventDefault();
+        var formData = new FormData(document.getElementById("newsForm"));
+        $.ajax({
+            'method': 'post',
+            'type': 'POST',
+            'data': formData,
+            '_token': "{{ csrf_token() }}",
+            'url': "{{ route('news.store') }}",
+            success: function (data) {
+                if (data.status === 200) {
+                    toastr.success('message send success');
+                    $('#contactForm input').val('');
+                    $('.load-contact').html('');
+                }
+            },
+            error: function (data) {
+                if (data.status === 500) {
+                    toastr.error('error sending message !!');
+                } else if (data.status === 422) {
+                    var errors = $.parseJSON(data.responseText);
+                    $.each(errors, function (key, value) {
+                        // alert(value);
+                        if ($.isPlainObject(value)) {
+                            $.each(value, function (key, value) {
+                                toastr.error('' + value);
+                                // alert(value);
+                            });
+                        }
+                    });
+                    $('.load-contact').html('error');
+                }
+            }
+            ,
+            cache: false,
+            processData: false,
+            contentType: false
+        })
+    })
+</script>

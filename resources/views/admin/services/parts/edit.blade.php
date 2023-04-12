@@ -47,7 +47,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="desc_en" class="form-control-label">الوصف بالانجليزي</label>
-                <textarea class="form-control" rows="8" name="desc_en" id="desc_ar">{{ $service->desc_ar }}</textarea>
+                <textarea class="form-control" rows="8" name="desc_en" id="desc_ar">{{ $service->desc_en }}</textarea>
             </div>
         </div>
     </div>

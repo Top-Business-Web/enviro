@@ -26,7 +26,7 @@ class StoreSubCategory extends FormRequest
         return [
             'title_ar' => 'required',
             'title_en' => 'required',
-            'categories_id' => 'required'
+            'category_id' => 'required'
         ];
     }
 

@@ -16,7 +16,6 @@ class QuoteController extends Controller
             return Datatables::of($quotes)
                 ->addColumn('action', function ($quotes) {
                     return '
-                                <button type="button" data-id="' . $quotes->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                                 <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                         data-id="' . $quotes->id . '" data-title="' . $quotes->title_ar . '">
                                         <i class="fas fa-trash"></i>

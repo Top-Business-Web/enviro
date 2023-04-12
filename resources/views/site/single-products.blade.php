@@ -27,13 +27,15 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="main-slider">
-                        <div class="product-img">
-                            <img
-                                class="img-fluid"
-                                src="{{ asset($data['product']->images[0]) }}"
-                                alt="product image"
-                            />
-                        </div>
+                        @foreach($data['product']->images as $img)
+                            <div class="product-img">
+                                <img
+                                    class="img-fluid"
+                                    src="{{ asset($img) }}"
+                                    alt="product image"
+                                />
+                            </div>
+                        @endforeach
                     </div>
                     <div class="small-slider">
                         @foreach ($data['product']->images as $image)

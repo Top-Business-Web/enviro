@@ -157,24 +157,6 @@
                                 </div>
                             </li>
                         </ul>
-
-                        <!-- <div class="progress-bar-area">
-                            <div class="single-bar-item">
-                                <h4>Recycling Service</h4>
-                                <div id="bar1" class="barfiller">
-                                    <span class="tip">90%</span>
-                                    <span class="fill" data-percentage="90"></span>
-                                </div>
-                            </div>
-
-                            <div class="single-bar-item">
-                                <h4>Waste Management</h4>
-                                <div id="bar2" class="barfiller">
-                                    <span class="tip">70%</span>
-                                    <span class="fill" data-percentage="70"></span>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>

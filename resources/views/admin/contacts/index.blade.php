@@ -9,13 +9,6 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">قائمة التوصل</h3>
-                    <div class="">
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span> اضافة جديد
-                        </button>
-                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -95,6 +88,7 @@
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'email', name: 'email'},
+            {data: 'phone', name: 'phone'},
             {data: 'subject', name: 'subject'},
             {data: 'message', name: 'message'},
             {data: 'action', name: 'action', orderable: false, searchable: false},

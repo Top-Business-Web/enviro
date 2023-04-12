@@ -49,8 +49,8 @@
                     <div class="sidebar">
                         <div class="sidebar_single sidebar_search">
                             <form action="#" class="sidebar_search-form">
-                                <input type="search" placeholder="Search here">
-                                <button type="submit"><i class="fas fa-search"></i></button>
+                                <input type="text" class="search" name="search" id="search" placeholder="Search here">
+                                <button class="btn" id="btn-search" type="button"><i class="fas fa-search"></i></button>
                             </form>
                         </div>
                     </div>
@@ -61,19 +61,29 @@
                         <div class="widget-content">
                             <ul class="list-unstyled">
                                 @foreach ($data['categories'] as $category)
-                                    <li data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                    <li data-bs-toggle="collapse" href="#collapseExample{{ $category->id }}"
+                                        role="button"
                                         aria-expanded="false" aria-controls="collapseExample">
-                                        <a href="projects.html">{{ $category->title_ar }}</a
-                                        ><span>2</span>
+                                        <div>
+                                            <a href="">{{ $category->title_ar }}</a>
+                                            <span>{{ $category->count() }}</span>
+                                        </div>
                                     </li>
-                                    <ul class="list-unstyled collapse" id="collapseExample">
-                                        <li>
-                                            <a href="">hi</a>
-                                        </li>
-                                    </ul>
+                                    <div class="widget-content">
+                                        <ul class="list-unstyled collapse category-sort" data-id="{{ $category->id }}"
+                                            id="collapseExample{{ $category->id }}">
+                                            @foreach($category->subCategory as $subcategory)
+                                                <li>
+                                                    <a href="">{{ $subcategory->title_ar }}</a>
+                                                    <span>{{ $subcategory->count() }}</span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 @endforeach
                             </ul>
                         </div>
+
                     </div>
 
                     <hr>
@@ -100,6 +110,30 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $('.search').on('keyup', function() {
+            $value = $(this).val();
+
+            $.ajax({
+                type: 'get',
+                url: '{{ route('product-search') }}',
+                data: {
+                    'search': $value
+                },
+                beforeSend: function(data) {
+                    $('.product-search').html(loader);
+                },
+                success: function(data) {
+                    // alert(data)
+                    $('.product-search').html(data);
+                },
+                error: function(data) {
+                    $('.product-search').html('<h2 class="error">{{ app()->getLocale() == 'ar' ? 'لا يوجد منتجات' : 'NO PROJECT FOUND' }}</h2>');
+                }
+            });
+        });
+    </script>
 
 @endsection
 

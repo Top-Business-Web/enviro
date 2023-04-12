@@ -25,4 +25,37 @@ class ProductController extends Controller
         $data['related'] = Product::where('sub_categories_id', $id)->get();
          return view('site.single-products', compact('data'));
     }
+
+    public function productSearch(Request $request)
+    {
+        if ($request->ajax()) {
+            $output = '';
+
+            $products = Product::where('title_en', 'LIKE', '%' . $request->search . '%')
+                ->Orwhere('title_ar', 'LIKE', '%' . $request->search . '%')
+                ->get();
+
+            if ($products->count() > 0) {
+                foreach ($products as $key => $product) {
+                    $output .=
+                        '<div class="col-12 col-md-6 col-lg-4">
+                                <div class="project-single">
+                                    <div class="project-img">
+                                        <img src="'. asset($product->images[0]) .'" alt="">
+                                    </div>
+                                    <div class="project-content">
+                                        <div class="project-title text-center">
+                                            <a href="'. route('singleProduct', $product->id) .'"
+                                               class="fs-5">'. $product->title_ar .'</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>';
+                }
+                return Response($output);
+            } else {
+                return response('no data', 404);
+            }
+        }
+    } // end search
 }

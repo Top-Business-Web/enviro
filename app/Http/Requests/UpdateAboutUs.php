@@ -24,7 +24,7 @@ class UpdateAboutUs extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|image',
+            'image' => 'nullable|image',
             'top_title_ar' => 'required',
             'top_title_en' => 'required',
             'top_desc_ar' => 'required',

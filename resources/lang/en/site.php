@@ -18,6 +18,14 @@ return [
 
     #### Home
     'learn_more' => 'learn more',
+    'build_relations' => 'Build Relations',
+    'Integrity' => 'Integrity',
+    'accountabilit' => 'Accountabilit',
+    'excellence' => 'Excellence',
+    'innovation' => 'Innovation',
+    'our_values' => 'Our Values',
+    'our_vision' => 'Our vision',
+    'our_mission' => 'Our mission',
 
     #### NavBar
     'home' => 'Home',
@@ -47,9 +55,9 @@ return [
     'sustainable' => 'Sustainable, Reliable & Affordable Recycling Service!',
     'we_provide' => 'We Provide Various Recycling Services & Waste Disposal',
     'collect_separate_materials' => 'Collect & separate materials',
-    'reduce_recycling_into_raw_material.' => 'Reduce & recycling into raw material.',
+    'reduce_recycling_into_raw_material' => 'Reduce & recycling into raw material.',
     'turn_raw_material_into_product' => 'Turn raw material into product',
-    'recycling_wastage_save_environment!' => 'Recycling Wastage Save Environment!',
+    'recycling_wastage_save_environment' => 'Recycling Wastage Save Environment!',
     'simple_steps_wastage' => 'Simple steps Wastage',
     'to_recycling_item_processing' => 'to Recycling Item Processing',
     'recycling_is_the_process_of_converting' => 'Recycling is the process of converting waste materials into new materials and objects. To do this, recycling often requires both machinery and employees to correctly sort recyclable items based on the material they’re made of. This includes paper, plastic, glass, metal, and more',
@@ -65,7 +73,7 @@ return [
     'conserv_natural_resources' => 'Conserv Natural Resources',
     'reduces_carbon_emissions' => 'Reduces Carbon Emissions',
     'protects_ecosystems' => 'Protects Ecosystems',
-    'economic_Benefits.' => 'Economic Benefits.',
+    'economic_Benefits' => 'Economic Benefits.',
     'we_take_great_pride' => 'We take great pride in everything that we do, control over products allows us to ensure our customers receive the best quality service.',
     'name' => 'Name',
     'name_company' => 'Name Company',
@@ -87,7 +95,7 @@ return [
 
 
     #### About Us
-    'enviro_group_for_environmental ' => 'Enviro group for environmental solutions started its activity in plastic recycling in 2021 by producing high quality recycled LDPE and HDPE for Egyptian market.',
+    'enviro_group_for_environmental' => 'Enviro group for environmental solutions started its activity in plastic recycling in 2021 by producing high quality recycled LDPE and HDPE for Egyptian market.',
     'in_2022_enviro_group_starts' => 'In 2022, enviro group starts procedures to expand its activities by backward integration through waste management procedures. The company aims to be fully licensed company from Egyptian government to be compatible with waste management procedures.',
     'comfort_pickup' => 'Convenient Pickup',
     'reducing_waste' => 'Reducing Waste',
@@ -106,6 +114,10 @@ return [
     #### Service_single
     'contact_with_us_for_any_advice' => 'Contact with us for any advice',
     'call_anytime' => 'Call anytime',
+    'better_environment' => 'Better Environment',
+    'better_future' => 'Better Future',
+    'paper_gift' => 'Paper gift wrap often is not recyclable when it has a shiny or laminated coating. If you use gift wrap, purchase a type that can be recycled or is made from recycled content. EPA encourages consumers to reuse gift bags, boxes, and tissue paper Newspaper is an excellent alternative to gift wrap.',
+    'recycling_is' => 'Recycling is the process of collecting and processing materials that would otherwise be thrown away as trash and turning them into new products. Recycling can benefit your community,the economy and the environment.',
 
     #### products
     'category' => 'Category',
