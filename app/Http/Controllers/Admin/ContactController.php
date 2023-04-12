@@ -18,7 +18,6 @@ class ContactController extends Controller
             return Datatables::of($contacts)
                 ->addColumn('action', function ($contacts) {
                     return '
-                                <button type="button" data-id="' . $contacts->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                                 <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                         data-id="' . $contacts->id . '" data-title="' . $contacts->name . '">
                                         <i class="fas fa-trash"></i>

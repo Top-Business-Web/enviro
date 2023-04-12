@@ -19,7 +19,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="name" class="form-control-label">لفئة</label>
-                    <select name="categories_id" class="form-control">
+                    <select name="category_id" class="form-control">
                         @foreach($data['categories'] as $category)
                             <option style="text-align: center" value="{{ $category->id }}">{{ $category->title_ar }}</option>
                         @endforeach

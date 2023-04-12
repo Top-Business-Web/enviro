@@ -1,5 +1,4 @@
 <!-- Header Top Area -->
-
 <div class="header-top">
     <div class="container">
         <div class="row">
@@ -21,17 +20,22 @@
                         </ul>
                     </div>
                     <div class="lang-list">
-                        <ul>
-                            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                <li>
-                                    <a rel="alternate" hreflang="{{ $localeCode }}"
-                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                        {{ $properties['native'] }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ LaravelLocalization::getCurrentLocaleNative() }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="langDropdown">
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="dropdown-item {{ App::getLocale() == $localeCode ? 'active' : '' }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -46,7 +50,7 @@
             <div class="container-fluid">
                 <div class="header-inner-box">
                     <div class="logo">
-                        <a class="navbar-brand" href="index.html"><img src="{{ asset($setting->logo) }}" alt=""/></a>
+                        <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset($setting->logo) }}" alt=""/></a>
                     </div>
 
                     <div class="main-menu">
@@ -74,14 +78,6 @@
                                         <a class="nav-link" href="{{ route('service') }}">{{ trans('site.services') }}
                                             <span class="sub-nav-toggler"> </span>
                                         </a>
-                                        <!-- <ul class="sub-menu">
-                                            <li>
-                                                <a href="single_services.blade.php">Plastic Recycling</a>
-                                            </li>
-                                            <li>
-                                                <a href="single_services.blade.php">Waste Mangment</a>
-                                            </li>
-                                        </ul> -->
                                     </li>
 
                                     <li class="nav-item">

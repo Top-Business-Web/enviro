@@ -57,27 +57,6 @@
         </div>
         <!-- MODAL CLOSED -->
 
-
-
-
-        <!-- Edit MODAL -->
-        <div class="modal fade bd-example-modal-lg" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">اقتباسات</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modal-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Edit MODAL CLOSED -->
-
     </div>
     @include('Admin/layouts/myAjaxHelper')
 
@@ -98,13 +77,6 @@
 
         deleteAny('{{route('quotes.destroy', ':id')}}');
 
-        // Add Using Ajax
-        showAddModal('{{route('quotes.create')}}');
-        addScript();
-
-        // Edit Using Ajax
-        showEditModal('{{route('quotes.edit',':id')}}');
-        editScript();
     </script>
 @endsection
 

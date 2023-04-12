@@ -30,7 +30,9 @@
                         <div class="service-details_sidebar-service">
                             <ul class="service-details_sidebar-service-list list-unstyled">
                                 @foreach ($data['services'] as $service)
-                                    <li class="d-block current"><a href="single_services.html">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}<span> <i
+                                    <li class="d-block current"><a
+                                            href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}
+                                            <span> <i
                                                     class="fas fa-long-arrow-alt-right"></i></span></a></li>
                                 @endforeach
                             </ul>
@@ -56,91 +58,56 @@
                         <section id="main-carousel" class="splide" aria-label="My Awesome Gallery">
                             <div class="splide__track">
                                 <ul class="splide__list">
-                                    <li class="splide__slide">
-                                        <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
-                                    </li>
-                                    <li class="splide__slide">
-                                        <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
-                                    </li>
-                                    <li class="splide__slide">
-                                        <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
-                                    </li>
-                                    <li class="splide__slide">
-                                        <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
-                                    </li>
+                                    @foreach($data['single_service']->images as $image)
+                                        <li class="splide__slide">
+                                            <img src="{{ asset($image) }}" alt="">
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </section>
 
 
                         <ul id="thumbnails" class="thumbnails">
-                            <li class="thumbnail">
-                                <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
-                            </li>
-                            <li class="thumbnail">
-                                <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
-                            </li>
-                            <li class="thumbnail">
-                                <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
-                            </li>
-                            <li class="thumbnail">
-                                <img src="{{ asset('assets/front') }}/assets/img/service-details/plastic_recycle.jpg" alt="">
-                            </li>
+                            @foreach($data['single_service']->images as $image)
+                                <li class="thumbnail">
+                                    <img src="{{ asset($image) }}" alt="">
+                                </li>
+                            @endforeach
                         </ul>
 
-
-                        <!-- <div class="service-details_img">
-                            <img src="assets/img/service-details/plastic_recycle.jpg" alt="">
-
-                        </div> -->
                         <div class="service-details_content">
                             <h3 class="service-details_title">{{ app()->getLocale() == 'ar' ? $data['single_service']->title_ar : $data['single_service']->title_en }}</h3>
-                            <p class="service-details_text-1">More than 35 million tons of plastics were generated in
-                                the United States in 2018 and only 8.7 percent was recycled. Some types of plastics are
-                                not accepted in community recycling programs. Check with your local recycling program to
-                                find out which types of plastic they accept. When possible, purchase products made from
-                                recycled plastic materials. </p>
-                            <p class="service-details_text-2">Check what your community or office program accepts before
-                                you put it in the bin. Look for products that are made from recycled paper when you
-                                shop. Better yet, consider if you really need to print in the first place.</p>
-                            <p class="service-details_text-2">If the book is still in good condition, try donating it!
-                                Schools, places of faith, charities, and non-profits will often accept book donations.
-                                If the book is not in usable condition, it can be recycled. Paperback books can be
-                                recycled as-is; remove the cover from a hardcover book before recycling it.</p>
+                            <p class="service-details_text-1">{{ app()->getLocale() == 'ar' ? $data['single_service']->desc_ar : $data['single_service']->desc_en }} </p>
                         </div>
                         <ul class="service-details_two-icons list-unstyled">
                             <li class="service-details_two-icon-single">
                                 <div class="service-details_two-icon">
 								<span class="service-icon">
-									<img src="assets/img/icon/1.png" alt="">
+									<img src="{{ asset('assets/front') }}/assets/img/icon/1.png" alt="">
 								</span>
                                 </div>
                                 <p class="service-details_two-icon-content" style="margin-top: 35px;">
-                                    Better Environment
+                                    {{ trans('site.better_environment') }}
                                 </p>
                             </li>
                             <li class="service-details_two-icon-single">
                                 <div class="service-details_two-icon">
 								<span class="service-icon">
-									<img src="assets/img/icon/2.png" alt="">
+									<img src="{{ asset('assets/front') }}/assets/img/icon/2.png" alt="">
 								</span>
                                 </div>
                                 <p class="service-details_two-icon-content" style="margin-top: 35px;">
-                                    Better Future
+                                    {{ trans('site.better_future') }}
                                 </p>
                             </li>
                         </ul>
-                        <p class="service-details_text-3">Paper gift wrap often is not recyclable when it has a shiny or
-                            laminated coating. If you use gift wrap, purchase a type that can be recycled or is made
-                            from recycled content. EPA encourages consumers to reuse gift bags, boxes, and tissue paper.
-                            Newspaper is an excellent alternative to gift wrap. </p>
+                        <p class="service-details_text-3">{{ trans('site.paper_gift') }}</p>
                         <div class="service-details_bottom">
                             <div class="service-details_bottom-icon">
                                 <img src="assets/img/icon/recycling.png" style="width: 70px;" alt="">
                             </div>
-                            <p class="service-details_bottom-text">Recycling is the process of collecting and processing
-                                materials that would otherwise be thrown away as trash and turning them into new
-                                products. Recycling can benefit your community, the economy and the environment.</p>
+                            <p class="service-details_bottom-text">{{ trans('site.recycling_is') }}</p>
                         </div>
                     </div>
                 </div>

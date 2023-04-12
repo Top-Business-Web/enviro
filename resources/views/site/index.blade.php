@@ -7,24 +7,26 @@
 
     <div class="homepage-slides owl-carousel">
         @foreach($data['sliders'] as $slider)
-        <div class="single-slide-item">
-            <div class="image-layer" style="background-image: url('assets/img/slider/slide-1.jpg');">
-                <div class="overlay"></div>
-            </div>
-            <div class="hero-area-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 wow fadeInUp animated" data-wow-delay=".2s">
-                            <div class="section-title">
-                                <h6>{{ app()->getLocale() == 'ar' ? $slider->sub_title_ar : $slider->sub_title_en }}</h6>
-                                <h1>{{ app()->getLocale() == 'ar' ? $slider->title_ar : $slider->title_en }}</h1>
+            <div class="single-slide-item">
+                <div class="image-layer"
+                     style="background-image: url({{ asset('assets/admin/sliders/images/'. $slider->image) }});">
+                    <div class="overlay"></div>
+                </div>
+                <div class="hero-area-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 wow fadeInUp animated" data-wow-delay=".2s">
+                                <div class="section-title">
+                                    <h6>{{ app()->getLocale() == 'ar' ? $slider->sub_title_ar : $slider->sub_title_en }}</h6>
+                                    <h1>{{ app()->getLocale() == 'ar' ? $slider->title_ar : $slider->title_en }}</h1>
+                                </div>
+                                <a href="{{ route('about') }}"
+                                   class="main-btn primary">{{ trans('site.learn_more') }}</a>
                             </div>
-                            <a href="about.blade.php" class="main-btn primary">{{ trans('site.learn_more') }}</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         @endforeach
     </div>
 
@@ -42,7 +44,9 @@
                             </div>
                             <div class="col-lg-8 col-md-8 col-12">
                                 <div class="promo-content">
-                                    <h5> {{ trans('site.we_are_top') }} <b> {{ trans('site.recycling') }} </b> {{ trans('site.organization_to_create_best') }} <b> {{ trans('site.environment') }} </b></h5>
+                                    <h5> {{ trans('site.we_are_top') }}
+                                        <b> {{ trans('site.recycling') }} </b> {{ trans('site.organization_to_create_best') }}
+                                        <b> {{ trans('site.environment') }} </b></h5>
                                     <button class="main-btn bg-brown mt-3">{{ trans('site.liceneses') }}</button>
                                 </div>
                             </div>
@@ -51,7 +55,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-12 wow fadeInUp" data-wow-delay=".4s">
                     <div class="promo-founder">
-                        <img src="assets/img/icon/ecology.png" style="width: 50px;" alt="">
+                        <img src="{{ asset('assets/front') }}/assets/img/icon/ecology.png" style="width: 50px;" alt="">
                         <p class="highlight">25+</p>
                         <p>{{ trans('site.years') }} <br>{{ trans('site.experience') }}</p>
                     </div>
@@ -83,7 +87,8 @@
                                             {{ trans('site.enviro_group_aims') }}
                                         </p>
 
-                                        <button class="main-btn bg-brown mb-3">{{ trans('site.Profile_company') }}</button>
+                                        <button
+                                            class="main-btn bg-brown mb-3">{{ trans('site.Profile_company') }}</button>
 
                                         <div class="row mt-20">
                                             <div class="col-lg-4 col-md-4 col-12">
@@ -93,7 +98,8 @@
                                                     </div>
                                                     <div class="featured-content">
                                                         <div class="featured-title">
-                                                            <h5>{{ trans('site.ontime_at') }} <br>{{ trans('site.services') }}</h5>
+                                                            <h5>{{ trans('site.ontime_at') }}
+                                                                <br>{{ trans('site.services') }}</h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -117,7 +123,8 @@
                                                     </div>
                                                     <div class="featured-content">
                                                         <div class="featured-title">
-                                                            <h5>{{ trans('site.affordable') }} <br>{{ trans('site.cost') }}</h5>
+                                                            <h5>{{ trans('site.affordable') }}
+                                                                <br>{{ trans('site.cost') }}</h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -131,10 +138,11 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="about-img">
-                        <img src="assets/img/about/about.jpg" alt="">
+                        <img src="{{ $aboutUs->image }}" alt="">
                         <div class="about-counter">
                             <div class="counter-icon">
-                                <img src="assets/img/icon/customer-service.png" style="width: 50px;" alt="">
+                                <img src="{{ asset('assets/front') }}/assets/img/icon/customer-service.png"
+                                     style="width: 50px;" alt="">
                             </div>
                             <div class="counter-number">
                                 <span class="counting" data-counterup-nums="">{{ $aboutUs->happy_clients }}</span>
@@ -162,22 +170,26 @@
             </div>
             <div class="service-item-wrap mt-30 owl-carousel">
                 @foreach ($data['services'] as $service)
-                <div class="service-single">
-                    <div class="service-icon">
-                        <img src="{{ $service->images[0] }}" alt="">
+                    <div class="service-single">
+                        <div class="service-icon">
+                            <img src="{{ $service->images[0] }}" alt="">
+                        </div>
+                        <div class="service-content">
+                            <h4>
+                                <a href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }} </a>
+                            </h4>
+                            <hr>
+                            <p>{{ app()->getLocale() == 'ar' ? $service->desc_ar : $service->desc_en }}</p>
+                            <ul class="list-unstyled service-list">
+                                <li><i class="fas fa-check"></i>{{ trans('site.collect_separate_materials')}}</li>
+                                <li><i class="fas fa-check"></i>{{ trans('site.reduce_recycling_into_raw_material') }}
+                                </li>
+                                <li><i class="fas fa-check"></i>{{ trans('site.turn_raw_material_into_product') }}</li>
+                            </ul>
+                            <a class="main-btn primary"
+                               href="{{ route('service') }}">{{ trans('site.find_out_more') }}</a>
+                        </div>
                     </div>
-                    <div class="service-content">
-                        <h4><a href="single_services.blade.php">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }} </a></h4>
-                        <hr>
-                        <p>{{ app()->getLocale() == 'ar' ? $service->desc_ar : $service->desc_en }}</p>
-                        <ul class="list-unstyled service-list">
-                            <li><i class="fas fa-check"></i>{{ trans('site.collect_separate_materials')}}</li>
-                            <li><i class="fas fa-check"></i>{{ trans('site.reduce_recycling_into_raw_material') }}</li>
-                            <li><i class="fas fa-check"></i>{{ trans('site.turn_raw_material_into_product') }}</li>
-                        </ul>
-                        <a class="main-btn primary" href="single_services.blade.php">{{ trans('site.find_out_more') }}</a>
-                    </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -191,7 +203,8 @@
                 <div class="col-12 col-lg-6">
                     <div class="section-title">
                         <h6>{{ trans('site.recycling_wastage_save_environment') }}</h6>
-                        <h2 class="text-white">{{ trans('site.simple_steps_wastage') }} <br> {{ trans('site.to_recycling_item_processing') }}</h2>
+                        <h2 class="text-white">{{ trans('site.simple_steps_wastage') }}
+                            <br> {{ trans('site.to_recycling_item_processing') }}</h2>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -199,8 +212,9 @@
                         <p class="text-white">{{ trans('site.recycling_is_the_process_of_converting') }}</p>
                         <p class="text-white">{{ trans('site.this_waste_management_video') }}</p>
                         <div class="process-btn">
-                            <a href="contact.blade.php" class="main-btn">{{ trans('site.get_started') }}</a>
-                            <a href="services.blade.php" class="main-btn white">{{ trans('site.view_our_services') }}</a>
+                            <a href="{{ route('contact') }}" class="main-btn">{{ trans('site.get_started') }}</a>
+                            <a href="{{ route('service') }}"
+                               class="main-btn white">{{ trans('site.view_our_services') }}</a>
                         </div>
                     </div>
                 </div>
@@ -211,15 +225,14 @@
                 <div class="col-lg-4 col-12">
                     <div class="process-single">
                         <div class="process-icon">
-                            <img src="assets/img/vision.svg" alt="" style="width: 60px;">
+                            <img src="{{ asset('assets/front') }}/assets/img/vision.svg" alt="" style="width: 60px;">
                         </div>
                         <div class="process-title">
-                            <h5>our vision</h5>
+                            <h5>{{ trans('site.our_vision') }}</h5>
                         </div>
                         <div class="process-desc">
                             <p style="text-align: justify;">
-                                To lead the integrated waste industry in Egypt through cooperation with the different
-                                sectors toward a clean environment and completing the recycled process.
+                                {{ app()->getLocale() == 'ar' ? $aboutUs->desc_ar : $aboutUs->desc_en }}
                             </p>
                         </div>
                     </div>
@@ -227,18 +240,14 @@
                 <div class="col-lg-4 col-12">
                     <div class="process-single two">
                         <div class="process-icon">
-                            <img src="assets/img/mission.svg" alt="" style="width: 60px;">
+                            <img src="{{ asset('assets/front') }}/assets/img/mission.svg" alt="" style="width: 60px;">
                         </div>
                         <div class="process-title">
-                            <h5>our mission</h5>
+                            <h5>{{ trans('site.our_mission') }}</h5>
                         </div>
                         <div class="process-desc">
                             <p style="text-align: justify;">
-                                Supporting the circular economy by applying integrated environmental solutions to
-                                achieve
-                                zero waste principals and making the best utilization of resources while fulfilling our
-                                responsibility towards our stakeholders by achieving win-win situation at all levels
-                                (customers, business partners, employees and natural environment).
+                                {{ app()->getLocale() == 'ar' ? $aboutUs->top_desc_ar : $aboutUs->top_desc_en }}
                             </p>
                         </div>
                     </div>
@@ -246,18 +255,18 @@
                 <div class="col-lg-4 col-12">
                     <div class="process-single three">
                         <div class="process-icon">
-                            <img src="assets/img/process/4.png" alt="" style="width: 60px;">
+                            <img src="{{ asset('assets/front') }}/assets/img/process/4.png" alt="" style="width: 60px;">
                         </div>
                         <div class="process-title">
-                            <h5>Our values </h5>
+                            <h5>{{ trans('site.our_values') }} </h5>
                         </div>
                         <!-- <div class="process-desc text-start"> -->
                         <ul class="list-unstyled service-list mt-0">
-                            <li><i class="fas fa-check"></i>Build relations</li>
-                            <li><i class="fas fa-check"></i>Integrity</li>
-                            <li><i class="fas fa-check"></i>Accountabilit</li>
-                            <li><i class="fas fa-check"></i>Excellence</li>
-                            <li><i class="fas fa-check"></i>Innovation</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.build_relations') }}</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.Integrity') }}</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.accountabilit') }}</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.excellence') }}</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.innovation') }}</li>
                         </ul>
                         <!-- </div>                         -->
                     </div>
@@ -300,9 +309,12 @@
                             <div class="row">
                                 <div class="col-12 col-md-6 col-sm-6 col-lg-6">
                                     <ul class="list-unstyled contact-list">
-                                        <li><i class="fas fa-check"></i> {{ trans('site.reduce_greenhouse_effect') }}</li>
-                                        <li><i class="fas fa-check"></i>{{ trans('site.conserv_natural_resources') }}</li>
-                                        <li><i class="fas fa-check"></i>{{ trans('site.reduces_carbon_emissions') }}</li>
+                                        <li><i class="fas fa-check"></i> {{ trans('site.reduce_greenhouse_effect') }}
+                                        </li>
+                                        <li><i class="fas fa-check"></i>{{ trans('site.conserv_natural_resources') }}
+                                        </li>
+                                        <li><i class="fas fa-check"></i>{{ trans('site.reduces_carbon_emissions') }}
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="col-12 col-md-6 col-sm-6 col-lg-6">
@@ -314,8 +326,8 @@
                             </div>
                         </div>
                         <div class="contact-btn">
-                            <a class="main-btn" href="about.blade.php">{{ trans('site.learn_more') }}</a>
-                            <a class="main-btn white" href="faq.blade.php">{{ trans('site.our_core_values') }}</a>
+                            <a class="main-btn" href="{{ trans('about') }}">{{ trans('site.learn_more') }}</a>
+                            <a class="main-btn white" href="{{ trans('faqs') }}">{{ trans('site.our_core_values') }}</a>
                         </div>
 
                     </div>
@@ -325,36 +337,47 @@
                         <div class="quotation-inner">
                             <h5 class="quotation-heading">{{ trans('site.get_a_quote') }}</h5>
                             <p class="quotation-desc">
-                            {{ trans('site.we_take_great_pride') }}
+                                {{ trans('site.we_take_great_pride') }}
                             </p>
-                            <form action="index.blade.html">
+                            <form class="quoteForm" id="quoteForm">
+                                @csrf
                                 <div class="row">
                                     <div class="col-12 col-md-6">
-                                        <label class="form-label" for="contact-usage">{{ trans('site.name') }}
+                                        <label class="form-label" for="contact-usage">{{ trans('site.first_name') }}
                                         </label>
-                                        <input class="form-control" type="text" placeholder="Name" required=""/>
+                                        <input class="form-control" type="text" name="first_name"
+                                               placeholder="{{ trans('site.first_name') }}" required=""/>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label class="form-label" for="contact-usage">{{ trans('site.last_name') }}
+                                        </label>
+                                        <input class="form-control" type="text" name="last_name"
+                                               placeholder="{{ trans('site.last_name') }}" required=""/>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <label class="form-label" for="contact-usage">{{ trans('site.name_company') }}
                                         </label>
-                                        <input class="form-control" type="text" placeholder="Compnay Name"
+                                        <input class="form-control" type="text" name="company"
+                                               placeholder="{{ trans('site.name_company') }}"
                                                required=""/>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <label class="form-label" for="contact-usage">{{ trans('site.phone') }}
                                         </label>
-                                        <input class="form-control" type="number" placeholder="Contact Number"
+                                        <input class="form-control" type="number" name="phone"
+                                               placeholder="{{ trans('site.phone') }}"
                                                required=""/>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <label class="form-label" for="contact-usage">{{ trans('site.email') }}
                                         </label>
-                                        <input class="form-control" type="email" placeholder="E-mail" required=""/>
+                                        <input class="form-control" type="email" name="email"
+                                               placeholder="{{ trans('site.email') }}" required=""/>
                                     </div>
 
                                     <div class="col-12">
-                                        <button class="main-btn primary">{{ trans('site.submit_request') }}</i>
-                                        </button>
+                                        <button type="button" id="quote-btn"
+                                                class="main-btn primary">{{ trans('site.submit') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -377,63 +400,71 @@
                     </div>
                 </div>
             </div>
-            <div class="service-item-wrap mt-30 owl-carousel">
-                <div class="project-single">
-                    <div class="project-img">
-                        <img src="assets/img/project/2.jpg" alt="">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title text-center">
-                            <a href="single-product" class="fs-5">{{ trans('site.plastic_recycling_services') }}</a>
+            @foreach($data['products'] as $product)
+                <div class="service-item-wrap mt-30 owl-carousel">
+                    <div class="project-single">
+                        <div class="project-img">
+                            <img src="{{ asset($product->images[0]) }}" alt="">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title text-center">
+                                <a href="{{ route('singleProduct', $product->id) }}"
+                                   class="fs-5">{{ app()->getLocale() == 'ar' ? $product->title_ar : $product->title_en }}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-single">
-                    <div class="project-img">
-                        <img src="assets/img/project/2.jpg" alt="">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title text-center">
-                            <a href="single-product" class="fs-5">{{ trans('site.plastic_recycling_services') }}</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-single">
-                    <div class="project-img">
-                        <img src="assets/img/project/2.jpg" alt="">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title text-center">
-                            <a href="single-product" class="fs-5">{{ trans('site.plastic_recycling_services') }}</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-single">
-                    <div class="project-img">
-                        <img src="assets/img/project/2.jpg" alt="">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title text-center">
-                            <a href="single-product" class="fs-5">{{ trans('site.plastic_recycling_services') }}</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-single">
-                    <div class="project-img">
-                        <img src="assets/img/project/2.jpg" alt="">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title text-center">
-                            <a href="single-product" class="fs-5">{{ trans('site.plastic_recycling_services') }}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
     <!-- Footer Area -->
+
+
+    <script>
+        $('#quote-btn').on('click', function (e) {
+            e.preventDefault();
+            var formData = new FormData(document.getElementById("quoteForm"));
+            $.ajax({
+                'method': 'post',
+                'type': 'POST',
+                'data': formData,
+                '_token': "{{ csrf_token() }}",
+                'url': "{{ route('quote.store') }}",
+                beforeSend: function (formData) {
+                    $('.load-contact').html('Loading ... ');
+                },
+                success: function (data) {
+                    if (data.status === 200) {
+                        toastr.success('message send success');
+                        $('#quoteForm input').val('');
+                        $('.load-contact').html('');
+                    }
+                },
+                error: function (data) {
+                    if (data.status === 500) {
+                        toastr.error('error sending message !!');
+                    } else if (data.status === 422) {
+                        var errors = $.parseJSON(data.responseText);
+                        $.each(errors, function (key, value) {
+                            // alert(value);
+                            if ($.isPlainObject(value)) {
+                                $.each(value, function (key, value) {
+                                    toastr.error('' + value);
+                                    // alert(value);
+                                });
+                            }
+                        });
+                        $('.load-contact').html('error');
+                    }
+                }
+                ,
+                cache: false,
+                processData: false,
+                contentType: false
+            })
+        })
+    </script>
 
 @endsection
 

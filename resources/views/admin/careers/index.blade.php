@@ -2,20 +2,15 @@
 @section('title')
     حياة مهنية
 @endsection
-@section('page_name') حياة مهنية @endsection
+@section('page_name')
+    حياة مهنية
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">قائمة المهن</h3>
-                    <div class="">
-                        <button class="btn btn-secondary btn-icon text-white addBtn">
-									<span>
-										<i class="fe fe-plus"></i>
-									</span> اضافة جديد
-                        </button>
-                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -64,27 +59,6 @@
         </div>
         <!-- MODAL CLOSED -->
 
-
-
-
-        <!-- Edit MODAL -->
-        <div class="modal fade bd-example-modal-lg" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">بيانات المهن</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modal-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Edit MODAL CLOSED -->
-
     </div>
     @include('Admin/layouts/myAjaxHelper')
 
@@ -104,16 +78,7 @@
         // Delete Using Ajax
 
         deleteAny('{{route('careers.destroy', ':id')}}');
-
-        // Add Using Ajax
-        showAddModal('{{route('careers.create')}}');
-        addScript();
-
-
-
-        // Edit Using Ajax
-        showEditModal('{{route('careers.edit',':id')}}');
-        editScript();
+        
     </script>
 @endsection
 

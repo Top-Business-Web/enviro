@@ -30,6 +30,7 @@ Route::group(
     ], function(){
     #### Home ####
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::post('/news/store', [HomeController::class, 'storeNews'])->name('news.store');
 
 #### About ####
     Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -52,6 +53,7 @@ Route::group(
 #### Product ####
     Route::get('/product', [ProductController::class, 'index'])->name('product');
     Route::get('/singleProduct/{id}', [ProductController::class, 'singleProduct'])->name('singleProduct');
+    Route::get('/productSearch/', [ProductController::class, 'productSearch'])->name('product-search');
 
 #### Quote ####
     Route::get('/quote', [QuoteController::class, 'index'])->name('quote');

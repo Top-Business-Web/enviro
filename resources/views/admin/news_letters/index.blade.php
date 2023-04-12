@@ -2,7 +2,9 @@
 @section('title')
     النشرة الإخبارية
 @endsection
-@section('page_name')  النشرة الإخبارية @endsection
+@section('page_name')
+    النشرة الإخبارية
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12 col-lg-12">
@@ -53,27 +55,6 @@
         </div>
         <!-- MODAL CLOSED -->
 
-
-
-
-        <!-- Edit MODAL -->
-        <div class="modal fade bd-example-modal-lg" id="editOrCreate" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="example-Modal3">النشرة الإخبارية</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modal-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Edit MODAL CLOSED -->
-
     </div>
     @include('Admin/layouts/myAjaxHelper')
 
@@ -90,15 +71,6 @@
 
         deleteAny('{{route('news_letter.destroy', ':id')}}');
 
-        // Add Using Ajax
-        showAddModal('{{route('news_letter.create')}}');
-        addScript();
-
-
-
-        // Edit Using Ajax
-        showEditModal('{{route('news_letter.edit',':id')}}');
-        editScript();
     </script>
 @endsection
 

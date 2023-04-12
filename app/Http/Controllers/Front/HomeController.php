@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\NewsLetter;
+use App\Models\Product;
 use App\Models\Slider;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -13,6 +15,21 @@ class HomeController extends Controller
     {
         $data['sliders'] = Slider::all();
         $data['services'] = Service::all();
+        $data['products'] = Product::all();
         return view('site.index', compact('data'));
+    }
+
+    public function storeNews(Request $request)
+    {
+        $inputs = $request->all();
+
+        if(NewsLetter::create($inputs))
+        {
+            return response()->json(['status' => 200]);
+        }
+        else
+        {
+            return response()->json(['status' => 405]);
+        }
     }
 }

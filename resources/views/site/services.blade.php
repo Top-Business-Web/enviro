@@ -45,11 +45,13 @@
                                 </div>
                             </div>
                             <div class="services-two_content">
-                                <h3 class="services-two_title"><a href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}</a>
+                                <h3 class="services-two_title"><a
+                                        href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}</a>
                                 </h3>
                                 <p class="services-two_text">{{ app()->getLocale() == 'ar' ? $service->desc_ar : $service->desc_en }}</p>
                                 <div class="services-two_bottom">
-                                    <a href="{{ route('singleService', $service->id) }}" class="services-one_btn">{{ trans('site.read_more') }}</a>
+                                    <a href="{{ route('singleService', $service->id) }}"
+                                       class="services-one_btn">{{ trans('site.read_more') }}</a>
                                     <a href="single_services.blade.php" class="services-one_arrow"><span
                                             class="icon-right-arrow"></span></a>
                                 </div>
@@ -69,15 +71,14 @@
                 <div class="col-lg-4 col-12">
                     <div class="process-single">
                         <div class="process-icon">
-                            <img src="assets/img/vision.svg" alt="" style="width: 60px;">
+                            <img src="{{ asset('assets/front') }}/assets/img/vision.svg" alt="" style="width: 60px;">
                         </div>
                         <div class="process-title">
-                            <h5>our vision</h5>
+                            <h5>{{ trans('site.our_vision') }}</h5>
                         </div>
                         <div class="process-desc">
                             <p style="text-align: justify;">
-                                To lead the integrated waste industry in Egypt through cooperation with the different
-                                sectors toward a clean environment and completing the recycled process.
+                                {{ app()->getLocale() == 'ar' ? $aboutUs->desc_ar : $aboutUs->desc_en }}
                             </p>
                         </div>
                     </div>
@@ -85,17 +86,14 @@
                 <div class="col-lg-4 col-12">
                     <div class="process-single two">
                         <div class="process-icon">
-                            <img src="assets/img/mission.svg" alt="" style="width: 60px;">
+                            <img src="{{ asset('assets/front') }}/assets/img/mission.svg" alt="" style="width: 60px;">
                         </div>
                         <div class="process-title">
-                            <h5>our mission</h5>
+                            <h5>{{ trans('site.our_mission') }}</h5>
                         </div>
                         <div class="process-desc">
                             <p style="text-align: justify;">
-                                Supporting the circular economy by applying integrated environmental solutions to
-                                achieve zero waste principals and making the best utilization of resources while
-                                fulfilling our responsibility towards our stakeholders by achieving win-win situation at
-                                all levels (customers, business partners, employees and natural environment).
+                                {{ app()->getLocale() == 'ar' ? $aboutUs->top_desc_ar : $aboutUs->top_desc_en }}
                             </p>
                         </div>
                     </div>
@@ -103,20 +101,18 @@
                 <div class="col-lg-4 col-12">
                     <div class="process-single three">
                         <div class="process-icon">
-                            <img src="assets/img/process/4.png" alt="" style="width: 60px;">
+                            <img src="{{ asset('assets/front') }}/assets/img/process/4.png" alt="" style="width: 60px;">
                         </div>
                         <div class="process-title">
-                            <h5>Our values </h5>
+                            <h5>{{ trans('site.our_values') }} </h5>
                         </div>
-                        <!-- <div class="process-desc text-start"> -->
                         <ul class="list-unstyled service-list mt-0">
-                            <li><i class="fas fa-check"></i>Build relations</li>
-                            <li><i class="fas fa-check"></i>Integrity</li>
-                            <li><i class="fas fa-check"></i>Accountabilit</li>
-                            <li><i class="fas fa-check"></i>Excellence</li>
-                            <li><i class="fas fa-check"></i>Innovation</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.build_relations') }}</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.Integrity') }}</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.accountabilit') }}</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.excellence') }}</li>
+                            <li><i class="fas fa-check"></i>{{ trans('site.innovation') }}</li>
                         </ul>
-                        <!-- </div>                         -->
                     </div>
                 </div>
 

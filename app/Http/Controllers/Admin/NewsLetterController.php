@@ -16,7 +16,6 @@ class NewsLetterController extends Controller
             return Datatables::of($news_letters)
                 ->addColumn('action', function ($news_letters) {
                     return '
-                                <button type="button" data-id="' . $news_letters->id . '" class="btn btn-pill btn-info-light editBtn"><i class="fa fa-edit"></i></button>
                                 <button class="btn btn-pill btn-danger-light" data-toggle="modal" data-target="#delete_modal"
                                         data-id="' . $news_letters->id . '" data-title="' . $news_letters->title_ar . '">
                                         <i class="fas fa-trash"></i>
