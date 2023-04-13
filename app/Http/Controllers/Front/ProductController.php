@@ -36,7 +36,7 @@ class ProductController extends Controller
                 ->get();
 
             if ($products->count() > 0) {
-                foreach ($products as $key => $product) {
+                foreach ($products as $product) {
                     $output .=
                         '<div class="col-12 col-md-6 col-lg-4">
                                 <div class="project-single">

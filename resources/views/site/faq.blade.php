@@ -33,17 +33,17 @@
                     <div class="accordion faqs" id="accordionFaq">
                         @foreach($data['faqs'] as $faq)
                             <div class="card">
-                                <div class="card-header" id="heading1">
+                                <div class="card-header" id="heading{{ $faq->id }}">
                                     <h5 class="mb-0 subtitle">
                                         <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapse1{{ $faq->id }}" aria-expanded="false"
+                                                data-bs-target="#collapse{{ $faq->id }}" aria-expanded="false"
                                                 aria-controls="collapse7">
                                             {{ $faq->question }}
                                         </button>
                                     </h5>
                                 </div>
 
-                                <div id="collapse1{{$faq->id}}" class="collapse" aria-labelledby="heading1"
+                                <div id="collapse{{$faq->id}}" class="collapse" aria-labelledby="heading{{ $faq->id }}"
                                      data-parent="#accordionFaq">
                                     <div class="card-body">
                                         <div class="content">

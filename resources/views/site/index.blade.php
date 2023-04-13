@@ -7,9 +7,8 @@
 
     <div class="homepage-slides owl-carousel">
         @foreach($data['sliders'] as $slider)
-            <div class="single-slide-item">
-                <div class="image-layer"
-                     style="background-image: url({{ asset('assets/admin/sliders/images/'. $slider->image) }});">
+            <div class="single-slide-item" style="background-image: url({{ asset('assets/admin/sliders/images/'. $slider->image) }});">
+                <div class="image-layer">
                     <div class="overlay"></div>
                 </div>
                 <div class="hero-area-content">
@@ -400,8 +399,8 @@
                     </div>
                 </div>
             </div>
-            @foreach($data['products'] as $product)
-                <div class="service-item-wrap mt-30 owl-carousel">
+            <div class="service-item-wrap mt-30 owl-carousel">
+                @foreach($data['products'] as $product)
                     <div class="project-single">
                         <div class="project-img">
                             <img src="{{ asset($product->images[0]) }}" alt="">
@@ -413,8 +412,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
 
