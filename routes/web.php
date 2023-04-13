@@ -37,7 +37,7 @@ Route::group(
 
 #### Blog ####
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-    Route::get('/blogDetails', [BlogController::class, 'blogDetails'])->name('blogDetails');
+    Route::get('/blog/{id}', [BlogController::class, 'singleBlog'])->name('singleBlog');
 
 #### Career ####
     Route::get('/career', [CareerController::class, 'index'])->name('career');

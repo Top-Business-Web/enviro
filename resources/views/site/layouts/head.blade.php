@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>Enviro Group for services and waste management</title>
+    <title>{{ trans('site.enviro_group_for_services_and_waste_management') }}</title>
 
     <!--Favicon-->
     <link rel="icon" href="{{ asset('assets/front/') }}/assets/img/favicon.png" type="image/jpg"/>

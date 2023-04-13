@@ -26,6 +26,7 @@ return [
     'our_values' => 'قيمنا',
     'our_vision' => 'رؤيتنا',
     'our_mission' => 'مهمتنا',
+    'enviro_group_for_services_and_waste_management' => 'Enviro Group للخدمات وإدارة النفايات',
 
     #### NavBar
     'home' => 'الرئيسية',
@@ -159,6 +160,10 @@ return [
     'faq' => 'الاسئلة الشائعة',
     'if_you_dont_know_find_out' => 'إذا كنت لا تعرف ، اكتشف',
     'frequently_asked_question' => 'أسئلة شائعة',
+
+    #### Blog
+    'blog' => 'مدونة',
+    'latest_post' => 'أخر المنشورات',
 
 
 ];

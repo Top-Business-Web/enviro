@@ -26,6 +26,7 @@ return [
     'our_values' => 'Our Values',
     'our_vision' => 'Our vision',
     'our_mission' => 'Our mission',
+    'enviro_group_for_services_and_waste_management' => 'Enviro Group for services and waste management',
 
     #### NavBar
     'home' => 'Home',
@@ -160,5 +161,9 @@ return [
     'faq' => 'Faq',
     'if_you_dont_know_find_out' => 'If you don\'t know Find out',
     'frequently_asked_question' => 'Frequently asked question',
+
+    #### Blog
+    'blog' => 'Blog',
+    'latest_post' => 'Latest Post',
 
 ];

@@ -112,7 +112,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                         <div class="project-single">
                             <div class="project-img">
-                                <img src="{{ asset('assets/front/') }}/assets/img/project/2.jpg" alt="">
+                                <img src="{{ asset($related->images[0]) }}" alt="">
                             </div>
                             <div class="project-content">
                                 <div class="project-title text-center">

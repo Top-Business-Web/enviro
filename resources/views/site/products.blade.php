@@ -90,7 +90,7 @@
                     <div class="sidebar_single sidebar_post" style="padding: 30px; margin-bottom: 30px;">
                         <h3 class="sidebar_title mb-3" style="margin-left: 0;">{{ trans('site.latest_products') }}</h3>
                         <ul class="sidebar_post-list list-unstyled">
-                            <?php $products = \App\Models\Product::all()->take(4)->last()->get(); ?>
+                            <?php $products = \App\Models\Product::latest()->take(4)->get(); ?>
                             @foreach($products as $product)
                                 <li style="padding: 0; margin-bottom: 15px;">
                                     <div class="sidebar_post-image">
