@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCareer;
+use App\Http\Requests\StoreContact;
 use App\Models\Career;
 use App\Traits\PhotoTrait;
 use Illuminate\Http\Request;
@@ -15,7 +17,7 @@ class CareerController extends Controller
         return view('site.career');
     }
 
-    public function storeCareer(Request $request)
+    public function storeCareer(StoreCareer $request)
     {
         $inputs = $request->all();
 

@@ -20,7 +20,7 @@
 
 
     <div class="section-career gray-bg section-padding">
-            <form class="careerForm" id="careerForm">
+        <form class="careerForm" id="careerForm">
             @csrf
             <div class="container">
                 <div class="section-title text-center">
@@ -28,22 +28,14 @@
                     <h6>{{ trans('site.join_us') }}</h6>
                     <h2 style="margin: 0; font-size: 40px;">{{ trans('site.we_wish') }}!</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis inventore amet porro deserunt,
-                        quis nam esse eligendi soluta sed eos culpa voluptatem blanditiis impedit ex, tempore vitae
-                        quidem quam? Minima?
                     </p>
                 </div>
 
                 <div class="d-flex justify-content-center align-items-center mt-5">
                     <div class="information-cv d-flex justify-content-center align-items-center flex-column">
-                        <div class="wrapper">
-                            <div class="drag-file">
-                                <input type="file" class="file-input" hidden>
-                                <i class="fa-solid fa-cloud-upload-alt"></i>
-                                <p class="mt-2">drag and drop file</p>
-                            </div>
-                            <section class="uploaded-area"></section>
-                        </div>
+
+                        <input type="file" class="dropify drag-file" name="file">
+                        <section class="uploaded-area"></section>
                         <div class="row form-contact mt-5">
                             <div class="col-md-6 col-sm-12 mb-4">
                                 <input type="text" class="w-100 p-3" name="name" placeholder=" {{ trans('site.name') }}"
@@ -62,7 +54,7 @@
                                        placeholder=" {{ trans('site.salary') }}" required>
                             </div>
                             <div class="col-12 mt-2 d-flex justify-content-center">
-                                <button type="button" class="main-btn primary mt-2" id="career-btn"
+                                <button type="submit" class="main-btn primary mt-2" id="career-btn"
                                         style="border-radius: 10px;">{{ trans('site.send') }}
                                 </button>
                             </div>
@@ -79,6 +71,11 @@
     </div>
 
     <script>
+
+        $(document).ready(function () {
+            $('.dropify').dropify();
+        });
+
         $('#career-btn').on('click', function (e) {
             e.preventDefault();
             var formData = new FormData(document.getElementById("careerForm"));
@@ -89,13 +86,18 @@
                 '_token': "{{ csrf_token() }}",
                 'url': "{{ route('career.store') }}",
                 beforeSend: function (formData) {
-                    $('.load-contact').html('Loading ... ');
+                    $('#career-btn').html('Loading ... ');
                 },
                 success: function (data) {
                     if (data.status === 200) {
-                        toastr.success('message send success');
+                        toastr.success('سنتواصل معاك في اسرع وقت');
+                        $('#career-btn').html('سنتواصل معاك في اسرع وقت');
                         $('#contactForm input').val('');
-                        $('.load-contact').html('');
+                        $('#career-btn').prop('disabled', true);
+                        setTimeout(function () {
+                            window.location.reload();
+                        },2000)
+
                     }
                 },
                 error: function (data) {
@@ -112,7 +114,7 @@
                                 });
                             }
                         });
-                        $('.load-contact').html('error');
+                        $('#career-btn').html('error');
                     }
                 }
                 ,

@@ -130,6 +130,7 @@ return [
     'water_resistant' => 'Water Resistant',
     'material' => 'Material',
     'related_products' => 'Related products',
+    'search here' => 'search here',
 
     #### career
     'join_us' => 'JOIN US',

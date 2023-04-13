@@ -7,7 +7,8 @@
 
     <div class="homepage-slides owl-carousel">
         @foreach($data['sliders'] as $slider)
-            <div class="single-slide-item" style="background-image: url({{ asset('assets/admin/sliders/images/'. $slider->image) }});">
+            <div class="single-slide-item"
+                 style="background-image: url({{ asset('assets/admin/sliders/images/'. $slider->image) }});">
                 <div class="image-layer">
                     <div class="overlay"></div>
                 </div>
@@ -431,13 +432,17 @@
                 '_token': "{{ csrf_token() }}",
                 'url': "{{ route('quote.store') }}",
                 beforeSend: function (formData) {
-                    $('.load-contact').html('Loading ... ');
+                    $('#quote-btn').html('Loading ... ');
                 },
                 success: function (data) {
                     if (data.status === 200) {
-                        toastr.success('message send success');
+                        toastr.success('سنتواصل معك في اقرب وقت');
                         $('#quoteForm input').val('');
-                        $('.load-contact').html('');
+                        $('#quote-btn').html('سنتواصل معك في اقرب وقت');
+                        $('#quote-btn').prop('disabled', true);
+                        setTimeout(function () {
+                            window.location.reload();
+                        },2000)
                     }
                 },
                 error: function (data) {
@@ -454,7 +459,7 @@
                                 });
                             }
                         });
-                        $('.load-contact').html('error');
+                        $('#quote-btn').html('error');
                     }
                 }
                 ,

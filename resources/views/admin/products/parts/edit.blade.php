@@ -50,20 +50,12 @@
                 <label for="sub_title_ar" class="form-control-label">الفئة الفرعية</label>
                 <select class="form-control" name="sub_categories_id">
                     <option value="#" selected style="text-align: center">اختار</option>
-                    @foreach($data['sub_categories'] as $sub)
+                    @foreach($sub_categories as $sub)
                         <option style="text-align: center" value="{{ $sub->id }}"
                                 {{ $product->sub_categories_id  == $sub->id ? 'selected' : '' }}
                         >{{ $sub->title_ar }}</option>
                     @endforeach
                 </select>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label for="details" class="form-control-label">التفاصيل</label>
-                <textarea class="form-control" rows="8" name="details" id="details">{{ $product->details }}</textarea>
             </div>
         </div>
     </div>
@@ -82,18 +74,20 @@
         </div>
 
         <label class="control-label">وصف اضافي</label>
+        @foreach($product->details as $detail)
         <div class="col-4">
             <div class="form-group itemKeys">
                 <label class="control-label">اسم</label>
-                <input type="text" name="items[0][key]" class="form-control InputKey">
+                <input type="text" name="items[{{ $loop->iteration }}][key]" value="{{ $detail['key'] }}" class="form-control InputKey">
             </div>
         </div>
         <div class="col-4">
             <div class="form-group itemItems">
                 <label class="control-label">القيمة</label>
-                <input type="text" name="items[0][value]" class="form-control InputItem">
+                <input type="text" name="items[{{ $loop->iteration }}][value]" value="{{ $detail['value'] }}" class="form-control InputItem">
             </div>
         </div>
+        @endforeach
         <div class="col-4">
             <div class="form-group ButtonItems">
                 <button type="button" class="btn btn-sm btn-primary MoreItem">عنصر اخر</button>
@@ -101,7 +95,7 @@
         </div>
 
         <script>
-            var i =0;
+            var i ={{count($product->details)}};
             $('.MoreItem').on('click', function () {
                 var Item = $('.InputItemExtra').last();
                 if (Item.val() !== '') {

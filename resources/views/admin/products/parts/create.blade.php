@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label for="sub_title_ar" class="form-control-label">الفئة الفرعية</label>
                     <select class="form-control" name="sub_categories_id">
-                        <option value="#" selected style="text-align: center">اختار</option>
+                        <option value="" selected disabled style="text-align: center">اختار</option>
                         @foreach($data['sub_categories'] as $sub)
                             <option style="text-align: center" value="{{ $sub->id }}">{{ $sub->title_ar }}</option>
                         @endforeach

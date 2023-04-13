@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <div class="row">
+                    <div class="row productSearch">
                         @foreach($data['products'] as $product)
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="project-single">
@@ -37,7 +37,7 @@
                                     <div class="project-content">
                                         <div class="project-title text-center">
                                             <a href="{{ route('singleProduct', $product->id) }}"
-                                               class="fs-5">{{ $product->title_ar }}</a>
+                                               class="fs-5">{{ trans_model($product,'title') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -49,8 +49,7 @@
                     <div class="sidebar">
                         <div class="sidebar_single sidebar_search">
                             <form action="#" class="sidebar_search-form">
-                                <input type="text" class="search" name="search" id="search" placeholder="Search here">
-                                <button class="btn" id="btn-search" type="button"><i class="fas fa-search"></i></button>
+                                <input type="search" class="searchInput" placeholder="{{ trans('site.search here') }}" name="search">
                             </form>
                         </div>
                     </div>
@@ -60,13 +59,16 @@
                         </div>
                         <div class="widget-content">
                             <ul class="list-unstyled">
+                                <li class="CategorySort">
+                                    <a class="CategorySort" data-id="all" href="#">All</a>
+                                </li>
                                 @foreach ($data['categories'] as $category)
                                     <li data-bs-toggle="collapse" href="#collapseExample{{ $category->id }}"
                                         role="button"
                                         aria-expanded="false" aria-controls="collapseExample">
                                         <div>
-                                            <a href="">{{ $category->title_ar }}</a>
-                                            <span>{{ $category->count() }}</span>
+                                            <a href="#">{{ trans_model($category,'title') }}</a>
+                                            <span>{{ $category->sub_category_count }}</span>
                                         </div>
                                     </li>
                                     <div class="widget-content">
@@ -74,8 +76,8 @@
                                             id="collapseExample{{ $category->id }}">
                                             @foreach($category->subCategory as $subcategory)
                                                 <li>
-                                                    <a href="">{{ $subcategory->title_ar }}</a>
-                                                    <span>{{ $subcategory->count() }}</span>
+                                                    <a class="CategorySort" data-id="{{ $subcategory->id }}" href="#">{{ trans_model($subcategory,'title') }}</a>
+{{--                                                    <span></span>--}}
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -112,24 +114,46 @@
     </div>
 
     <script type="text/javascript">
-        $('.search').on('keyup', function() {
-            $value = $(this).val();
+        $('.searchInput').on('keyup', function() {
+            var value = $(this).val();
 
             $.ajax({
                 type: 'get',
                 url: '{{ route('product-search') }}',
                 data: {
-                    'search': $value
+                    'search': value
                 },
                 beforeSend: function(data) {
-                    $('.product-search').html(loader);
+                    $('.productSearch').html('loading...');
                 },
                 success: function(data) {
-                    // alert(data)
-                    $('.product-search').html(data);
+                    $('.productSearch').html(data);
                 },
                 error: function(data) {
-                    $('.product-search').html('<h2 class="error">{{ app()->getLocale() == 'ar' ? 'لا يوجد منتجات' : 'NO PROJECT FOUND' }}</h2>');
+                    $('.productSearch').html('<h2 class="error">{{ app()->getLocale() == 'ar' ? 'لا يوجد منتجات' : 'NO PRODUCT FOUND' }}</h2>');
+                }
+            });
+        });
+
+
+
+        $('.CategorySort').on('click', function() {
+            var value = $(this).data('id');
+
+            $.ajax({
+                type: 'get',
+                url: '{{ route('productSort') }}',
+                data: {
+                    'categoryId': value
+                },
+                beforeSend: function(data) {
+                    $('.productSearch').html('loading...');
+                },
+                success: function(data) {
+                    $('.productSearch').html(data);
+                },
+                error: function(data) {
+                    $('.productSearch').html('<h2 class="error">{{ app()->getLocale() == 'ar' ? 'لا يوجد منتجات' : 'NO PRODUCT FOUND' }}</h2>');
                 }
             });
         });

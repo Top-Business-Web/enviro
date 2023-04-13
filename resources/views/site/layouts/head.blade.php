@@ -5,6 +5,10 @@
 
     <title>{{ trans('site.enviro_group_for_services_and_waste_management') }}</title>
 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet" />
+
+
     <!--Favicon-->
     <link rel="icon" href="{{ asset('assets/front/') }}/assets/img/favicon.png" type="image/jpg"/>
     <!-- Bootstrap CSS -->
@@ -33,6 +37,8 @@
     <link href="{{ asset('assets/front/') }}/assets/css/slick-theme.css" rel="stylesheet"/>
     <link href="{{ asset('assets/front/') }}/assets/css/slick.css" rel="stylesheet"/>
 
+    <!-- TOASTR CSS -->
+    @toastr_css
 
     <!-- font awesome -->
     <link href="{{ asset('assets/front/') }}/assets/css/all.min.css" rel="stylesheet"/>

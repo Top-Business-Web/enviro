@@ -49,6 +49,7 @@ class ProductController extends Controller
     public function store(StoreProduct $request)
     {
         $inputs = $request->all();
+
         if($request->has('files')){
             foreach($request->file('files') as $file)
             {
@@ -69,8 +70,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $data['sub_categories'] = SubCategory::all();
-        return view('Admin/products/parts/edit', compact('product', 'data'));
+        $sub_categories = SubCategory::get();
+        return view('Admin/products/parts/edit', compact(['product','sub_categories']));
     }
 
     public function update(UpdateProduct $request, $id)
@@ -84,6 +85,10 @@ class ProductController extends Controller
                 {
                     $inputs['images'][] = $this->saveImage($file,'assets/uploads/products','photo');
                 }
+            }
+
+            if ($request->has('items')) {
+                $inputs['details'] = $request->items;
             }
 
             if ($contacts->update($inputs)) {

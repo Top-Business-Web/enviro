@@ -21,18 +21,13 @@
                     </div>
                     <div class="lang-list">
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ LaravelLocalization::getCurrentLocaleNative() }}
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="langDropdown">
-                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                    <li>
-                                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="dropdown-item {{ App::getLocale() == $localeCode ? 'active' : '' }}">
-                                            {{ $properties['native'] }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
+
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <a class="btn btn-sm dropdown-toggle" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            @endforeach
+
                         </div>
                     </div>
 

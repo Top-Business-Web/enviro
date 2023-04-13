@@ -34,11 +34,11 @@
                             <h6>{{ trans('site.services') }}</h6>
                             <ul>
                                 <?php $services = \App\Models\Service::all()->take(6)->last()->get(); ?>
-                                @foreach($services as $service)
-                                    <li>
-                                        <p><a href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}</a></p>
-                                    </li>
-                                @endforeach
+                                <li>
+                                    @foreach($services as $service)
+                                        <a href="{{ route('singleService', $service->id) }}">{{ app()->getLocale() == 'ar' ? $service->title_ar : $service->title_en }}</a>
+                                    @endforeach
+                                </li>
                             </ul>
                         </div>
 
@@ -51,7 +51,8 @@
                         <form class="newsForm" id="newsForm">
                             @csrf
                             <input type="email" placeholder="{{ trans('site.email') }}" name="email"/>
-                            <button type="button" id="news-btn"><i class="fas fa-envelope"></i></button>
+                            <button class="submitBtn" type="button" id="news-btn"><i
+                                    class="fas fa-envelope submitIcon"></i></button>
                         </form>
                         <p>{{ trans('site.Stay_tuned_for_our_latest_news') }}</p>
                     </div>

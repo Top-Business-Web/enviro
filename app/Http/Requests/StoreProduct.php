@@ -30,8 +30,7 @@ class StoreProduct extends FormRequest
             'sub_title_en' => 'required',
             'desc_ar' => 'required',
             'desc_en' => 'required',
-            'images*' => 'image|nullable',
-            'images' => 'array|nullable',
+            'files' => 'array|required|min:1',
             'details' => 'required',
             'sub_categories_id' => 'required'
         ];
@@ -46,7 +45,7 @@ class StoreProduct extends FormRequest
             'sub_title_en.required' => 'العنوان الفرعي بالانجليزي مطلوب',
             'desc_ar.required' => 'الوصف بالعربي مطلوب',
             'desc_en.required' => 'الوصف بالانجليزي مطلوب',
-            'images.image' => 'يجب ان تكون صورة',
+            'files.image' => 'يجب ان تكون صورة',
             'details.required' => 'التفاصيل مطلوبة',
             'sub_categories_id.required' => 'يجب تحديد الفة الفرعية'
         ];

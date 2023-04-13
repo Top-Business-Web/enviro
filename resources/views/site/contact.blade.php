@@ -31,7 +31,11 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-
+<style>
+    .blackColor {
+        color: black !important;
+    }
+</style>
     <!--Contact Page Details Start-->
     <section class="contact-page-details">
         <div class="container">
@@ -49,23 +53,23 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="comment-form_input-box">
-                                                <input type="text" placeholder="{{ trans('site.name') }}" name="name">
+                                                <input class="blackColor" type="text" placeholder="{{ trans('site.name') }}" name="name">
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="comment-form_input-box">
-                                                <input type="email" placeholder="{{ trans('site.email') }}"
+                                                <input class="blackColor" type="email" placeholder="{{ trans('site.email') }}"
                                                        name="email">
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="comment-form_input-box">
-                                                <input type="text" placeholder="{{ trans('site.phone') }}" name="phone">
+                                                <input class="blackColor" type="text" placeholder="{{ trans('site.phone') }}" name="phone">
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="comment-form_input-box">
-                                                <input type="text" placeholder="{{ trans('site.subject') }}"
+                                                <input class="blackColor" type="text" placeholder="{{ trans('site.subject') }}"
                                                        name="subject">
                                             </div>
                                         </div>
@@ -73,7 +77,7 @@
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="comment-form_input-box">
-                                                <textarea name="message"
+                                                <textarea class="blackColor" name="message"
                                                           placeholder="{{ trans('site.write_a_message') }}"></textarea>
                                             </div>
                                             <button type="button" id="career-btn"

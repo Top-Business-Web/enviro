@@ -1,18 +1,18 @@
 /*
 Template Name: Ecofix
-Template URI: 
-Description: Waste Management & Recycling HTML Template 
-Author: IIDEA INFORMATICS 
-Author URI: 
+Template URI:
+Description: Waste Management & Recycling HTML Template
+Author: IIDEA INFORMATICS
+Author URI:
 Version: 1.0
  */
 /*--
-    - Google Font Import 
+    - Google Font Import
 -----------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;900&family=Barlow:wght@300;400;500;600;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700&display=swap");
 /*--
-    - Common CSS 
+    - Common CSS
 -----------------------------------------*/
 html,
 body {
@@ -575,7 +575,7 @@ textarea {
 }
 
 input[type=submit],
-button[type=submit] {
+button[type=submit] , .submitBtn {
   border: none;
   border-radius: 0;
   display: inline-block;
@@ -590,9 +590,14 @@ button[type=submit] {
 }
 
 input[type=submit]:hover,
-button[type=submit]:hover {
+button[type=submit]:hover,
+.submitBtn:hover{
   background: #DFB163;
   color: #fff;
+}
+
+.submitBtn:hover .submitIcon {
+    color: #fff !important;
 }
 
 input::placeholder,
@@ -616,7 +621,7 @@ input.form-control {
   background-image: none;
 }
 
-/* Bacground Color & Overlay CSS 
+/* Bacground Color & Overlay CSS
 ============== */
 .gray-bg {
   background: #F6F6F6;
@@ -688,7 +693,7 @@ input.form-control {
   left: 0;
 }
 
-/* Scroll Top 
+/* Scroll Top
 ============== */
 .go-top {
   background-color: #097e51;
@@ -732,7 +737,7 @@ input.form-control {
   color: #020E28;
 }
 
-/* Sticky CSS 
+/* Sticky CSS
 ============== */
 .header-area .is-sticky .sticky-area {
   background: #fff;
@@ -779,7 +784,7 @@ input.form-control {
 }
 
 /*--------------------------------------------------------------
-# Search Form 
+# Search Form
 --------------------------------------------------------------*/
 .search-box button {
   text-decoration: none;
@@ -1014,7 +1019,7 @@ input.form-control {
   font-weight: 400;
 }
 
-/* Header Area 
+/* Header Area
 ============== */
 .header-area .navigation {
   padding: 0px 30px;
@@ -1175,7 +1180,7 @@ input.form-control {
   }
 }
 
-/* Main Menu 
+/* Main Menu
 ============== */
 .main-menu .navbar {
   padding: 0;
@@ -1299,7 +1304,7 @@ input.form-control {
   font-weight: 500;
 }
 
-/* Slider CSS 
+/* Slider CSS
 ==================*/
 .single-slide-item {
   background-image: url("../img/slider/slide-1.jpg");
@@ -1800,7 +1805,7 @@ p.text-black:before {
   background: #eee;
 }
 
-/* Service Section 
+/* Service Section
 ============== */
 .single-service-area {
   background: #fff;
@@ -6071,7 +6076,7 @@ ul.contact-list li svg{
     padding: 0;
     justify-content: center;
   }
-  
+
   .thumbnail {
     width: 70px;
     height: 70px;
@@ -6085,7 +6090,7 @@ ul.contact-list li svg{
   .thumbnail.is-active {
     opacity: 1;
   }
-  
+
   .thumbnail img {
     width: 100%;
     height: auto;

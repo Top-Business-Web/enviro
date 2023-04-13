@@ -13,7 +13,8 @@ class ProductController extends Controller
     public function index()
     {
         $data['products'] = Product::all();
-        $data['categories'] = Category::all();
+        $data['categories'] = Category::with('subCategory')->withCount('subCategory')->get();
+//        return $data['categories'];
         $data['sub_categories'] = SubCategory::all();
         return view('site.products', compact('data'));
     }
@@ -31,9 +32,13 @@ class ProductController extends Controller
         if ($request->ajax()) {
             $output = '';
 
+            if ($request->search != ''){
             $products = Product::where('title_en', 'LIKE', '%' . $request->search . '%')
                 ->Orwhere('title_ar', 'LIKE', '%' . $request->search . '%')
                 ->get();
+            } else {
+                $products = Product::get();
+            }
 
             if ($products->count() > 0) {
                 foreach ($products as $product) {
@@ -58,4 +63,41 @@ class ProductController extends Controller
             }
         }
     } // end search
+
+
+    public function productSort(Request $request)
+    {
+        if ($request->ajax()) {
+            $output = '';
+
+            if ($request->categoryId != 'all'){
+                $products = Product::where('sub_categories_id','=', $request->categoryId)
+                    ->get();
+            } else {
+                $products = Product::get();
+            }
+
+            if ($products->count() > 0) {
+                foreach ($products as $product) {
+                    $output .=
+                        '<div class="col-12 col-md-6 col-lg-4">
+                                <div class="project-single">
+                                    <div class="project-img">
+                                        <img src="'. asset($product->images[0]) .'" alt="">
+                                    </div>
+                                    <div class="project-content">
+                                        <div class="project-title text-center">
+                                            <a href="'. route('singleProduct', $product->id) .'"
+                                               class="fs-5">'. $product->title_ar .'</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>';
+                }
+                return Response($output);
+            } else {
+                return response('no data', 404);
+            }
+        }
+    } // end sortProduct
 }

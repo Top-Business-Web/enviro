@@ -100,13 +100,17 @@
                 '_token': "{{ csrf_token() }}",
                 'url': "{{ route('quote.store') }}",
                 beforeSend: function (formData) {
-                    $('.load-contact').html('Loading ... ');
+                    $('#quote-btn').html('Loading ... ');
                 },
                 success: function (data) {
                     if (data.status === 200) {
-                        toastr.success('message send success');
-                        $('#contactForm input').val('');
-                        $('.load-contact').html('');
+                        toastr.success('سنتواصل معك في اقرب وقت');
+                        $('#quoteForm input').val('');
+                        $('#quote-btn').html('سنتواصل معك في اقرب وقت');
+                        $('#quote-btn').prop('disabled', true);
+                        setTimeout(function () {
+                            window.location.reload();
+                        },2000)
                     }
                 },
                 error: function (data) {
@@ -123,7 +127,7 @@
                                 });
                             }
                         });
-                        $('.load-contact').html('error');
+                        $('#quote-btn').html('error');
                     }
                 }
                 ,

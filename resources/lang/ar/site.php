@@ -128,6 +128,7 @@ return [
     'water_resistant' => 'مضاد للماء',
     'material' => 'مادة',
     'related_products' => 'المنتجات المتعلقة به',
+    'search here' => 'ابحث هنا',
 
 
     #### career

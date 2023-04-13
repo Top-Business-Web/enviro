@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreQuote;
 use App\Models\Quote;
-use Illuminate\Http\Request;
+
 
 class QuoteController extends Controller
 {
@@ -13,7 +14,7 @@ class QuoteController extends Controller
         return view('site.quotation');
     }
 
-    public function storeQuote(Request $request)
+    public function storeQuote(StoreQuote $request)
     {
         $inputs = $request->all();
 

@@ -26,7 +26,7 @@
         <li class="slide">
             <a class="side-menu__item" href="{{route('careers.index')}}">
                 <i class="fe fe-users side-menu__icon"></i>
-                <span class="side-menu__label">حياة مهنية</span>
+                <span class="side-menu__label">رسائل المهنة</span>
             </a>
         </li>
 

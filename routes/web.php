@@ -54,6 +54,7 @@ Route::group(
     Route::get('/product', [ProductController::class, 'index'])->name('product');
     Route::get('/singleProduct/{id}', [ProductController::class, 'singleProduct'])->name('singleProduct');
     Route::get('/productSearch/', [ProductController::class, 'productSearch'])->name('product-search');
+    Route::get('/productSort/', [ProductController::class, 'productSort'])->name('productSort');
 
 #### Quote ####
     Route::get('/quote', [QuoteController::class, 'index'])->name('quote');

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewsStore;
 use App\Models\NewsLetter;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\Service;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -19,7 +19,7 @@ class HomeController extends Controller
         return view('site.index', compact('data'));
     }
 
-    public function storeNews(Request $request)
+    public function storeNews(NewsStore $request)
     {
         $inputs = $request->all();
 

@@ -31,7 +31,7 @@ class UpdateProduct extends FormRequest
             'desc_ar' => 'required',
             'desc_en' => 'required',
             'images' => 'image|nullable',
-            'details' => 'required',
+            'items.*' => 'required',
             'sub_categories_id' => 'required'
         ];
     }
